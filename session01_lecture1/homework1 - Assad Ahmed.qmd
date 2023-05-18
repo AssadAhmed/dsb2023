@@ -49,14 +49,15 @@ dplyr::glimpse(flights)
 arr_delay_120mins <- flights %>% 
   #fliter for delays on arrival greater than or equal to 120 mins
   filter(arr_delay>=120)
-#View new data frame top entries
 
+#View new data frame top entries
 head(arr_delay_120mins)
 
 # Flew to Houston (IAH or HOU)
 # create new data frame for the subset of arrivals into IAH and HOU
 IAH_HOU <- flights %>% 
   filter(dest == "IAH" | dest== "HOU")
+
 #view new data frame
 head(IAH_HOU)
 
@@ -64,6 +65,7 @@ head(IAH_HOU)
 #New data frame for the fights operated by the 3 airlines
 UA_AA_DL <- flights %>% 
   filter(carrier == "UA" | carrier== "AA"| Carrier== "DL")
+
 #view new data frame
 head(UA_AA_DL)
 
@@ -72,12 +74,14 @@ head(UA_AA_DL)
 #Define new data frame for summer flights
 Summer <- flights %>% 
   filter(month  %in% c(7,8,9))
+
 #view new data frame
 head(Summer)
 
 # Arrived more than two hours late, but didn't leave late
 left_ontime_ari_late <- flights %>%
   filter(arr_delay>=120 & dep_delay<=0)
+
 #view new data frame
 head(left_ontime_ari_late)
 
@@ -85,6 +89,7 @@ head(left_ontime_ari_late)
 madeup_30min_delay <- flights %>%
   filter(dep_delay>=60 & (arr_delay-dep_delay)<=-30)%>%
   mutate(arr_minus_dep_delays =arr_delay-dep_delay)
+
 #view new data frame
 head(madeup_30min_delay)
 
@@ -109,7 +114,7 @@ view(flights)
 
 # What months had the highest and lowest % of cancelled flights?
 
-flights %>% 
+high_low_cancel <- flights %>% 
   #Group by month
   group_by(month) %>% 
   #proportion of cancelled flights calculated by converting dep_time to True/false
@@ -117,6 +122,20 @@ flights %>%
   summarise(prop_Cancelled = sum(is.na(dep_time)) / length(dep_time),
             NumberofFLights = length(dep_time))
 
+#view top entries
+#highest % canceled
+
+highest <- high_low_cancel %>% 
+  #filter for max month only
+  filter(prop_Cancelled==max(prop_Cancelled))
+#view highest month only
+highest
+
+lowest <- high_low_cancel %>% 
+  #filter for max month only
+  filter(prop_Cancelled==min(prop_Cancelled))
+#view lowest month only
+lowest
 
 
 ```
@@ -491,7 +510,7 @@ The age gaps dataset includes "gender" columns, which always contain the values 
 The following is a data dictionary of the variables used
 
 | variable            | class     | description                                                                                             |
-|:---------------|:---------------|:--------------------------------------|
+|:----------------|:----------------|:-------------------------------------|
 | movie_name          | character | Name of the film                                                                                        |
 | release_year        | integer   | Release year                                                                                            |
 | director            | character | Director of the film                                                                                    |
