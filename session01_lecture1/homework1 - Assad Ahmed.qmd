@@ -62,7 +62,7 @@ head(IAH_HOU)
 # Were operated by United (`UA`), American (`AA`), or Delta (`DL`)
 #New data frame for the fights operated by the 3 airlines
 UA_AA_DL <- flights %>% 
-  filter(carrier == "UA" | carrier== "AA"| Carrier== "DL")
+  filter(carrier == "UA" | carrier== "AA"| carrier== "DL")
 
 #view new data frame
 head(UA_AA_DL)
