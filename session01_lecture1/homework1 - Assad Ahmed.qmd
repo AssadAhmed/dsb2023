@@ -36,8 +36,6 @@ library(skimr)
 -   Were delayed by at least an hour, but made up over 30 minutes in flight
 ```
 
-glimpse(flights)
-
 ```{r}
 #| label: problem-1
 #Glimpse data set to view clumn names easily
@@ -98,7 +96,7 @@ head(madeup_30min_delay)
 ```         
 ```
 
-## Problem 2: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns. To determine if a flight was cancelled use the following code
+## Problem 2: What months had the highest and lowest proportion of cancelled flights? Interpret any seasonal patterns. 
 
 <!-- -->
 
@@ -183,15 +181,26 @@ Seats_50 <- Flights_Planes_2013 %>%
   #Filter for planes with >50 seats
   filter(seats >50 & !is.na(seats)) 
 #view tail numbers for the most active planes with >50 seats
-Head(Seats_50)
-#we know that plane:N328AA was the most active with mroe than 50 seats
-#Create a table of all 2013 flights by N328AA
+head(Seats_50)
+#Select the most active
+Most_Act <- Seats_50 %>% 
+  #filter for count=max
+  filter(count == max(count))
 
+Most_Act
+#we know that plane:N328AA was the most active with more than 50 seats
+#Create a table of all 2013 flights by N328AA
+#Create a reference for the tail number pulled directly from the data frame for the plane
+PlaneRef <- Most_Act[1,1]
+#View tailnum for the plane
+PlaneRef
+
+#show all flights in 2013 from the most active plane with >50 seats
 Flights_Planes %>% 
   #filter for 2013 and N328AAflights only, also excluding cancelled flights
-  filter(tailnum =="N328AA" & year.x == 2013 & !is.na(dep_time))
+  filter(tailnum == as.character(PlaneRef) & year.x == 2013 & !is.na(dep_time))
 
-#Table shows the 389 lfights in 2013 as expected
+#Table shows the 389 flights in 2013 as expected by the count shown earlier
 ```
 
 ## Problem 4: The `nycflights13` package includes a table (`weather`) that describes the weather during 2013. Use that table to answer the following questions:
@@ -305,7 +314,6 @@ Pop_Man <- planes %>%
   arrange(desc(Count))
 #selecting the top 5
 head(Pop_Man,5)
-view(Pop_Man)
 
 #Manafacturer distribition over time
 #collapsing manafacturers with <100 planes into other catagory
@@ -315,7 +323,7 @@ M <- c('BOEING', 'AIRBUS INDUSTRIE', 'BOMBARDIER INC', 'AIRBUS', 'EMBRAER','MCDO
 
 simplified_mana <-planes %>% 
   #replace small manafacturer names with other
-  mutate(manufacturer= case_when(manufacturer %in% M  ~ manufacturer, TRUE ~ 'Other'))
+  mutate(manufacturer= case_when(manufacturer %in% M  ~ manufacturer, TRUE ~ 'Other')) %>% 
   mutate(count=n())
 #plot manafacturer count over time
 
@@ -327,7 +335,7 @@ simplified_mana %>%
   facet_wrap(~year, scales = "free")+
   geom_bar()
 
-# the plots showcase how much the manafacturer split has changed over time, with significant differences vibile year to year in recent times.
+# the plots showcase how much the manafacturer split has changed over time, with significant differences visible year to year in recent times.
 #This may be due to the manafacturing/lifespan cycles being longdated, with certain manafactures producing more inventory in some years Vs others.
 ```
 
@@ -351,6 +359,10 @@ oldest <- Flights_Planes %>%
 #View thetop 5 entries
 head(oldest)
 #oldest plane is N381AA
+#Oldest plane and its flights in 2013
+oldest %>%
+  filter(year.y == min(year.y))
+
 
 #Planes that flew from NY that are in the planes table, implies tailnumbers that are in both tables.
 #manafacturer field is fully populated in lanes, implies use for count basis
@@ -390,7 +402,6 @@ medians <- flights %>%
   arrange(origin,month)
   #plot charts
 
-view(medians)
 #plot charts by origin, dot plot
 ggplot(medians, aes(x=month,y=median))+
   facet_wrap(~origin, scales = "free")+
@@ -414,11 +425,12 @@ fly_into_sfo <- left_join(x=flights,y=airlines, by = "carrier") %>%
   #Summarize to find the count of SFO and % to SFO for each airline name
   summarise(count= sum(Fly_SFO),
             percent = sum(Fly_SFO)/length(Fly_SFO))
-#view table
-view(fly_into_sfo)
+
+#glimpse new dataframe
+glimpse(fly_into_sfo)
 ```
 
-And here is some bonus ggplot code to plot your dataframe
+Plotting the new dataframe with given formats:
 
 ```{r}
 #| label: ggplot-flights-toSFO
@@ -487,7 +499,7 @@ cancellations <- flights %>%
 
 ```
 
-I want you to think how we would organise our data manipulation to create the following plot. No need to write the code, just explain in words how you would go about it.
+[Explanation for how to produce the plot below:]{.underline}
 
 -   Step 1: group data by airport, origin, carrier, and ,month.
 
@@ -529,47 +541,54 @@ The following is a data dictionary of the variables used
 
 age_gaps <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv')
 
-library(usethis)
-use_git_config(
-user.name = "AssadAhmed",
-user.email = "assad139@gmail.com"
-)
+#initially skim the dataset to get an idea of trends and variables
+skim(age_gaps)
 
-usethis::create_github_token()
-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
+#Calculate number of releases per year
+
+age_gaps %>% 
+  #Filter out any NA's
+  filter(!is.na(release_year)) %>% 
+  #Group by release year
+  group_by(release_year) %>% 
+  summarize(count=n()) %>% 
+  #Arrange by release year
+  arrange(release_year)
+
+#Check if actor age 1 or 2 is <17 absed on age field
+age_gaps %>% 
+  #Filter condition if 1 of the 2 ages is <17
+  filter(actor_1_age<17 | actor_2_age<17)
+#None appear to be below age 17
+
+#check again using release year-birth year
+age_gaps %>% 
+  #Filter condition if 1 of the 2 ages is <17
+  filter((release_year- year(actor_1_birthdate))<17 | (release_year- year(actor_1_birthdate))<17)
+#None appear to be below age 17 again
+
+#Count distinct number of couples by movie and order by most to elast couples
+
+top_5_couples <- age_gaps %>% 
+  #Filter for NA couple numbers
+    filter(!is.na(couple_number)) %>% 
+  #group by movie name
+  group_by(movie_name) %>% 
+  #Summarize a distinct count
+  summarise(CoupleCount= n_distinct(couple_number)) %>% 
+  #Order my most to least couples
+  arrange(desc(CoupleCount))
+
+#view top 5
+head(top_5_couples,5)
+
+#loveactually has the most couples with 7!
 ```
-
-How would you explore this data set? Here are some ideas of tables/ graphs to help you with your analysis
-
--   How is `age_difference` distributed? What's the 'typical' `age_difference` in movies?
-
--   The `half plus seven\` rule. Large age disparities in relationships carry certain stigmas. One popular rule of thumb is the [half-your-age-plus-seven](https://en.wikipedia.org/wiki/Age_disparity_in_sexual_relationships#The_.22half-your-age-plus-seven.22_rule) rule. This rule states you should never date anyone under half your age plus seven, establishing a minimum boundary on whom one can date. In order for a dating relationship to be acceptable under this rule, your partner's age must be:
-
-$$\frac{\text{Your age}}{2} + 7 < \text{Partner Age} < (\text{Your age} - 7) * 2$$ How frequently does this rule apply in this dataset?
-
--   Which movie has the greatest number of love interests?
--   Which actors/ actresses have the greatest number of love interests in this dataset?
--   Is the mean/median age difference staying constant over the years (1935 - 2022)?
--   How frequently does Hollywood depict same-gender love interests?
-
-# Deliverables
-
-There is a lot of explanatory text, comments, etc. You do not need these, so delete them and produce a stand-alone document that you could share with someone. Render the edited and completed Quarto Markdown (qmd) file as a Word document (use the "Render" button at the top of the script editor window) and upload it to Canvas. You must be commiting and pushing tour changes to your own Github repo as you go along.
 
 # Details
 
 -   Who did you collaborate with: NA
--   Approximately how much time did you spend on this problem set: 3 hours
--   What, if anything, gave you the most trouble: ANSWER HERE
+-   Approximately how much time did you spend on this problem set: 4 hours - mainly trying to get github to work!
+-   What, if anything, gave you the most trouble: replacing names in the manufacturers field in a coherent and scaleable way, think i found a solution although i didn't quite have time to update some of the code above. (i.e- i would replace the list i typed out with the top seven manufacturers with a vector selection the top X distinct manufactures base don count)
 
-**Please seek out help when you need it,** and remember the [15-minute rule](https://mam2022.netlify.app/syllabus/#the-15-minute-rule){target="_blank"}. You know enough R (and have enough examples of code from class and your readings) to be able to do this. If you get stuck, ask for help from others, post a question on Slack-- and remember that I am here to help too!
-
-> As a true test to yourself, do you understand the code you submitted and are you able to explain it to someone else?
-
-# Rubric
-
-13/13: Problem set is 100% completed. Every question was attempted and answered, and most answers are correct. Code is well-documented (both self-documented and with additional comments as necessary). Used tidyverse, instead of base R. Graphs and tables are properly labelled. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output. Multiple Github commits. Work is exceptional. I will not assign these often.
-
-8/13: Problem set is 60--80% complete and most answers are correct. This is the expected level of performance. Solid effort. Hits all the elements. No clear mistakes. Easy to follow (both the code and the output). A few Github commits.
-
-5/13: Problem set is less than 60% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not assign these often. Displays minimal effort. Doesn't complete all components. Code is poorly written and not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. No Github commits.
+# 
