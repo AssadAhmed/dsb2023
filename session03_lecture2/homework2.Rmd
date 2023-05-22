@@ -47,6 +47,8 @@ In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, 
 mass_shootings <- read_csv(here::here("data", "mass_shootings.csv"))
 
 glimpse(mass_shootings)
+
+head(mass_shootings)
 ```
 
 | column(variable)     | description                                                                 |
@@ -71,7 +73,16 @@ glimpse(mass_shootings)
 -   Generate a data frame that summarizes the number of mass shootings per year.
 
 ```{r}
+#Create a new dataframe for mass shootings per year called mass_shootings_yearly
 
+mass_shootings_yearly<- mass_shootings %>% 
+  #Filter out any NA's
+  filter(!is.na(year)) %>% 
+  #group by year and summarize the count of mass shootings
+  group_by(year) %>% 
+  summarize(Count = n())
+
+mass_shootings_yearly
 ```
 
 -   Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest and each bar should show its number.
