@@ -26,6 +26,7 @@ library(wbstats)
 library(skimr)
 library(countrycode)
 library(here)
+library(ggforce)
 ```
 
 # Data Visualisation - Exploration
@@ -88,19 +89,56 @@ mass_shootings_yearly
 -   Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest and each bar should show its number.
 
 ```{r}
-
+#Creating a barchart for number of mass shooters with each race catagory
+mass_shootings %>% 
+  #replace NA race entries with 'Unknown'
+  #reorder from most to least frequent race
+  mutate(race= case_when( !is.na(race)  ~ race, TRUE ~ 'Other'),race=fct_infreq(race)) %>%
+  #use GGplot to produce a bar char, initialse x variable and aes
+  ggplot(aes(x=race)) +
+  #plot on a barchart
+  geom_bar() +
+  #add asthetic label
+  geom_text(aes(label = after_stat(count)), stat = "count", vjust = 1.1, colour = "white")
 ```
 
 -   Generate a boxplot visualizing the number of total victims, by type of location.
 
 ```{r}
-
+#assume total victims means to exclude the shooter from the total
+#manipulate data for the boxplot
+mass_shootings %>% 
+  #Filter out for victim count NA
+  filter(!is.na(total_victims)) %>% 
+  #replace NA race entries with 'Unknown'
+  mutate(location= case_when( !is.na(location_type)  ~ location_type, TRUE ~ 'Other')) %>%
+  #Create a plot
+  ggplot(aes(x=location_type,y=total_victims)) +
+  geom_boxplot() +
+  #facet zoom to better see the plots on a more reasonable scale due to the outlier
+  facet_zoom(ylim = c(0, 150))
 ```
 
 -   Redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.
 
 ```{r}
+#View data set for las vegas strip massacre only
+mass_shootings %>% 
+  #only filter for las vegas strip
+  filter(grepl("Las Vegas Strip",case))
 
+#only shows the 1 entry as required
+
+#assume total victims means to exclude the shooter from the total
+#manipulate data for the boxplot
+mass_shootings %>% 
+  #Filter out for victim count NA and for the las vegas strip massacre
+  filter(!is.na(total_victims) & !grepl("Las Vegas Strip",case)) %>% 
+  #replace NA race entries with 'Unknown'
+  mutate(location= case_when( !is.na(location_type)  ~ location_type, TRUE ~ 'Other')) %>%
+  #Create a plot
+  ggplot(aes(x=location_type,y=total_victims)) +
+  geom_boxplot()
 ```
 
 ### More open-ended questions
@@ -110,7 +148,8 @@ Address the following questions. Generate appropriate figures/tables to support 
 -   How many white males with prior signs of mental illness initiated a mass shooting after 2000?
 
 ```{r}
-
+Prior_Mental_200 <- mass_shootings %>% 
+  #Convert NA's to a new category 'Unknown'
 ```
 
 -   Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological (natural) order (Jan-Feb-Mar- etc) to provide evidence of your answer.
