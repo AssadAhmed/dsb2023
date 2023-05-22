@@ -141,14 +141,11 @@ mass_shootings %>%
   geom_boxplot()
 ```
 
-### More open-ended questions
-
-Address the following questions. Generate appropriate figures/tables to support your conclusions.
 
 -   How many white males with prior signs of mental illness initiated a mass shooting after 2000?
 
 ```{r}
-<<<<<<< HEAD
+
 Prior_Mental_2000 <- mass_shootings %>% 
   #Filter for year>= 2000, for white males only
   filter (year>=2000 & race=='White' & male==TRUE) %>% 
@@ -435,8 +432,7 @@ card_fraud %>%
 
  
 
--   When is fraud more prevalent? Which days, months, hours? To create new variables to help you in your analysis, we use the `lubridate` package and the following code
-
+-   When is fraud more prevalent? Which days, months, hours? 
 ```         
 mutate(
   date_only = lubridate::date(trans_date_trans_time),
@@ -455,7 +451,60 @@ mutate(
 ```
 
 ```{r}
+#When is fraud most prevalent - day,month,year
 
+card_fraud %>% 
+#Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt) & is_fraud==1) %>% 
+#Seperate trabsaction date into individual fields
+mutate(
+  date_only = lubridate::date(trans_date_trans_time),
+  month_name = lubridate::month(trans_date_trans_time, label=TRUE),
+  hour = lubridate::hour(trans_date_trans_time),
+  weekday = lubridate::wday(trans_date_trans_time, label = TRUE)
+  ) %>% 
+#Group by Day & summarise count
+  group_by(weekday) %>% 
+  summarise(count=n()) %>% 
+#arrange descending
+  arrange(desc(count))
+  
+#monday the day with most fraud cases
+
+card_fraud %>% 
+#Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt) & is_fraud==1) %>% 
+#Seperate trabsaction date into individual fields
+mutate(
+  date_only = lubridate::date(trans_date_trans_time),
+  month_name = lubridate::month(trans_date_trans_time, label=TRUE),
+  hour = lubridate::hour(trans_date_trans_time),
+  weekday = lubridate::wday(trans_date_trans_time, label = TRUE)
+  ) %>% 
+#Group by Day & summarise count
+  group_by(month_name) %>% 
+  summarise(count=n()) %>% 
+#arrange descending to see the most fraudulent months
+  arrange(desc(count))
+  
+#March and may are tied for the most fraudulent months with 472 cases
+
+card_fraud %>% 
+#Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt) & is_fraud==1) %>% 
+#Seperate trabsaction date into individual fields
+mutate(
+  date_only = lubridate::date(trans_date_trans_time),
+  month_name = lubridate::month(trans_date_trans_time, label=TRUE),
+  hour = lubridate::hour(trans_date_trans_time),
+  weekday = lubridate::wday(trans_date_trans_time, label = TRUE)
+  ) %>% 
+#Group by Day & summarise count
+  group_by(trans_year) %>% 
+  summarise(count=n()) %>% 
+#arrange descending to see the most fraudulent year
+  arrange(desc(count))
+#2019 had the most fraud cases
 ```
 
 -   Is fraud related to distance? The distance between a card holder's home and the location of the transaction can be a feature that is related to fraud. To calculate distance, we need the latidue/longitude of card holders's home and the latitude/longitude of the transaction, and we will use the [Haversine formula](https://en.wikipedia.org/wiki/Haversine_formula) to calculate distance. I adapted code to [calculate distance between two points on earth](https://www.geeksforgeeks.org/program-distance-two-points-earth/amp/) which you can find below
@@ -478,13 +527,47 @@ card_fraud <- card_fraud %>%
     distance_miles = 3963.0 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)),
 
     # calculate distance in km
-    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians))
-
+    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)
+    
   )
+
+  
 
 ```
 
 Plot a boxplot or a violin plot that looks at the relationship of distance and `is_fraud`. Does distance seem to be a useful feature in explaining fraud?
+
+```{r}
+#Explore relationship for distance of fraud by plotting count of fraud cases by distance_km
+card_fraud %>%
+  mutate(
+    
+    # convert latitude/longitude to radians
+    lat1_radians = lat / 57.29577951,
+    lat2_radians = merch_lat / 57.29577951,
+    long1_radians = long / 57.29577951,
+    long2_radians = merch_long / 57.29577951,
+    
+    # calculate distance in miles
+    distance_miles = 3963.0 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)),
+
+    # calculate distance in km
+    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)
+    
+  ) %>% 
+#Convert NA's to a new category 'Unknown'
+#this will allow us to see what proportion of mass shooters have a hidden history in terms of mental     illness which will help to validate/invalidate any conclusions
+  mutate(prior_mental_illness= case_when( !is.na(prior_mental_illness)  
+                                ~ prior_mental_illness, TRUE ~ 'Unknown')) %>% 
+  ggplot(aes(x=is_fraud,y=distance_km)) +
+  geom_boxplot() +
+  facet_zoom(ylim = c(0, 30)) 
+  
+
+  
+  
+```
+
 
 # Exploring sources of electricity production, CO2 emissions, and GDP per capita.
 
