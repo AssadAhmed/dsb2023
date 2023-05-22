@@ -327,6 +327,7 @@ The dataset is too large to be hosted on Canvas or Github, so please download it
 card_fraud <- read_csv(here::here("data", "card_fraud.csv"))
 
 glimpse(card_fraud)
+head(card_fraud)
 ```
 
 The data dictionary is as follows
@@ -352,11 +353,35 @@ The data dictionary is as follows
 
 ```{r}
 
+card_fraud %>% 
+  #Filter out transactions without a fraud flag
+  filter(!is.na(is_fraud)) %>% 
+  #Group by transaction year
+  group_by(trans_year) %>% 
+  #add a count of transactions and calculate frequency as total count/365 days
+  summarise(No_Frauds = n(),
+            Freq_Fraud_per_day = No_Frauds/365,
+            Freq_per_mins= No_Frauds/(365*24*60))
 ```
 
 -   How much money (in US\$ terms) are fraudulent transactions costing the company? Generate a table that summarizes the total amount of legitimate and fraudulent transactions per year and calculate the % of fraudulent transactions, in US\$ terms.
 
 ```{r}
+
+Summary_One <- card_fraud %>% 
+  #Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt)) %>% 
+  #mutate 2 new columns for fraudulent/none fraudulent transaction amt in USD
+  mutate(Amt_Non_Fraudulent = case_when(is_fraud==1 ~ 0, TRUE ~ amt),
+         Amt_Fraudulent = case_when(is_fraud == 0 ~ 0, TRUE ~ amt)) %>% 
+  #Group by transaction year
+  group_by(trans_year) %>% 
+  #summaries total amount for non-fraudulent, fraudulent transactions, and the % share for fraudulent transactions in term sof value
+  summarise(Total_Non_Fraudulent = sum(Amt_Non_Fraudulent),
+            Total_Fraudulent = sum(Amt_Fraudulent),
+            percent_fraud= Total_Fraudulent/(Total_Non_Fraudulent+Total_Fraudulent))
+
+Summary_One
 
 ```
 
@@ -364,13 +389,51 @@ The data dictionary is as follows
 
 ```{r}
 
+card_fraud %>% 
+  #Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt) ) %>% 
+  #Group by is fraud
+  group_by(is_fraud) %>% 
+  #Create histogram plot
+  ggplot(aes(x=amt)) +
+  geom_histogram() +
+  facet_wrap(~is_fraud, scales = "free") 
+
+#Summary statistics
+
+#Summary for fraudulent
+skim(card_fraud %>% 
+  #Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt) & is_fraud==1 ))
+
+#Summary for Non-fraudulent
+skim(card_fraud %>% 
+  #Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt) & is_fraud==0 ))
 ```
 
 -   What types of purchases are most likely to be instances of fraud? Consider category of merchants and produce a bar chart that shows % of total fraudulent transactions sorted in order.
 
 ```{r}
 
-```
+card_fraud %>% 
+  #Filter out transactions without a fraud flag or amt
+  filter(!is.na(is_fraud) & !is.na(amt)) %>% 
+  #Group by transaction year
+  group_by(category ) %>% 
+  #summaries total amount for non-fraudulent, fraudulent transactions, and the % share for fraudulent transactions in term sof value
+  summarise(Total_Fraudulent = sum(is_fraud),
+            Total_Non_Fraudulent = length(is_fraud) -sum(is_fraud),
+            percent_fraud= Total_Fraudulent/(Total_Non_Fraudulent+Total_Fraudulent)) %>% 
+  #Order by most to least likely for fraudulent transaction
+  mutate(category =fct_rev(fct_reorder(category,percent_fraud))) %>% 
+  #bar chart plot
+  ggplot(aes(x=category, percent_fraud)) +
+  #plot on a barchart
+  geom_col() +
+  scale_y_continuous(labels = scales::percent_format()) 
+
+ 
 
 -   When is fraud more prevalent? Which days, months, hours? To create new variables to help you in your analysis, we use the `lubridate` package and the following code
 
