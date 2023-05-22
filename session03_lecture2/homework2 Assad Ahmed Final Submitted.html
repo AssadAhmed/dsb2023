@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Assad Ahmed">
+<meta name="dcterms.date" content="2023-05-22">
+
+<title>Homework 2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="homework2 Assad Ahmed Final Submitted_files/libs/clipboard/clipboard.min.js"></script>
+<script src="homework2 Assad Ahmed Final Submitted_files/libs/quarto-html/quarto.js"></script>
+<script src="homework2 Assad Ahmed Final Submitted_files/libs/quarto-html/popper.min.js"></script>
+<script src="homework2 Assad Ahmed Final Submitted_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="homework2 Assad Ahmed Final Submitted_files/libs/quarto-html/anchor.min.js"></script>
+<link href="homework2 Assad Ahmed Final Submitted_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="homework2 Assad Ahmed Final Submitted_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="homework2 Assad Ahmed Final Submitted_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="homework2 Assad Ahmed Final Submitted_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="homework2 Assad Ahmed Final Submitted_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework 2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Assad Ahmed </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<div class="cell">
+
+</div>
+<p>#loading in the data</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 125
+Columns: 14
+$ case                 &lt;chr&gt; "Oxford High School shooting", "San Jose VTA shoo…
+$ year                 &lt;dbl&gt; 2021, 2021, 2021, 2021, 2021, 2021, 2020, 2020, 2…
+$ month                &lt;chr&gt; "Nov", "May", "Apr", "Mar", "Mar", "Mar", "Mar", …
+$ day                  &lt;dbl&gt; 30, 26, 15, 31, 22, 16, 16, 26, 10, 6, 31, 4, 3, …
+$ location             &lt;chr&gt; "Oxford, Michigan", "San Jose, California", "Indi…
+$ summary              &lt;chr&gt; "Ethan Crumbley, a 15-year-old student at Oxford …
+$ fatalities           &lt;dbl&gt; 4, 9, 8, 4, 10, 8, 4, 5, 4, 3, 7, 9, 22, 3, 12, 5…
+$ injured              &lt;dbl&gt; 7, 0, 7, 1, 0, 1, 0, 0, 3, 8, 25, 27, 26, 12, 4, …
+$ total_victims        &lt;dbl&gt; 11, 9, 15, 5, 10, 9, 4, 5, 7, 11, 32, 36, 48, 15,…
+$ location_type        &lt;chr&gt; "School", "Workplace", "Workplace", "Workplace", …
+$ male                 &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…
+$ age_of_shooter       &lt;dbl&gt; 15, 57, 19, NA, 21, 21, 31, 51, NA, NA, 36, 24, 2…
+$ race                 &lt;chr&gt; NA, NA, "White", NA, NA, "White", NA, "Black", "B…
+$ prior_mental_illness &lt;chr&gt; NA, "Yes", "Yes", NA, "Yes", NA, NA, NA, NA, NA, …</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  case        year month   day location summary fatalities injured total_victims
+  &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+1 Oxford Hi…  2021 Nov      30 Oxford,… Ethan …          4       7            11
+2 San Jose …  2021 May      26 San Jos… Samuel…          9       0             9
+3 FedEx war…  2021 Apr      15 Indiana… Brando…          8       7            15
+4 Orange of…  2021 Mar      31 Orange,… Aminad…          4       1             5
+5 Boulder s…  2021 Mar      22 Boulder… Ahmad …         10       0            10
+6 Atlanta m…  2021 Mar      16 Atlanta… Robert…          8       1             9
+# ℹ 5 more variables: location_type &lt;chr&gt;, male &lt;lgl&gt;, age_of_shooter &lt;dbl&gt;,
+#   race &lt;chr&gt;, prior_mental_illness &lt;chr&gt;</code></pre>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>column(variable)</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>case</td>
+<td>short name of incident</td>
+</tr>
+<tr class="even">
+<td>year, month, day</td>
+<td>year, month, day in which the shooting occurred</td>
+</tr>
+<tr class="odd">
+<td>location</td>
+<td>city and state where the shooting occurred</td>
+</tr>
+<tr class="even">
+<td>summary</td>
+<td>brief description of the incident</td>
+</tr>
+<tr class="odd">
+<td>fatalities</td>
+<td>Number of fatalities in the incident, excluding the shooter</td>
+</tr>
+<tr class="even">
+<td>injured</td>
+<td>Number of injured, non-fatal victims in the incident, excluding the shooter</td>
+</tr>
+<tr class="odd">
+<td>total_victims</td>
+<td>number of total victims in the incident, excluding the shooter</td>
+</tr>
+<tr class="even">
+<td>location_type</td>
+<td>generic location in which the shooting took place</td>
+</tr>
+<tr class="odd">
+<td>male</td>
+<td>logical value, indicating whether the shooter was male</td>
+</tr>
+<tr class="even">
+<td>age_of_shooter</td>
+<td>age of the shooter when the incident occurred</td>
+</tr>
+<tr class="odd">
+<td>race</td>
+<td>race of the shooter</td>
+</tr>
+<tr class="even">
+<td>prior_mental_illness</td>
+<td>did the shooter show evidence of mental illness prior to the incident?</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Generate a data frame that summarizes the number of mass shootings per year.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a new data frame for mass shootings per year called mass_shootings_yearly</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mass_shootings_yearly<span class="ot">&lt;-</span> mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out any Na's</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(year)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by year and summarize the count of mass shootings</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">n</span>())</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>mass_shootings_yearly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 37 × 2
+    year Count
+   &lt;dbl&gt; &lt;int&gt;
+ 1  1982     1
+ 2  1984     2
+ 3  1986     1
+ 4  1987     1
+ 5  1988     1
+ 6  1989     2
+ 7  1990     1
+ 8  1991     3
+ 9  1992     2
+10  1993     4
+# ℹ 27 more rows</code></pre>
+</div>
+</div>
+<ul>
+<li>Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest and each bar should show its number.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating a bar chart for number of mass shooters with each race category</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#replace NA race entries with 'Unknown'</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#reorder from most to least frequent race</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">race=</span> <span class="fu">case_when</span>( <span class="sc">!</span><span class="fu">is.na</span>(race)  <span class="sc">~</span> race, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Other'</span>),<span class="at">race=</span><span class="fu">fct_infreq</span>(race)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#use GGplot to produce a bar char, initialise x variable and aes</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>race)) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#plot on a barchart</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">'#09A1B5'</span>,<span class="at">color=</span><span class="st">"#523886"</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#add aesthetic label</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)), <span class="at">stat =</span> <span class="st">"count"</span>, <span class="at">vjust =</span> <span class="fl">1.1</span>, <span class="at">colour =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Generate a boxplot visualizing the number of total victims, by type of location.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#assume total victims means to exclude the shooter from the total</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#manipulate data for the boxplot</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out for victim count NA</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(total_victims)) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#replace NA race entries with 'Unknown'</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">location=</span> <span class="fu">case_when</span>( <span class="sc">!</span><span class="fu">is.na</span>(location_type)  <span class="sc">~</span> location_type, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Other'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create a plot</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>location_type,<span class="at">y=</span>total_victims)) <span class="sc">+</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color=</span><span class="st">'darkblue'</span>) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#facet zoom to better see the plots on a more reasonable scale due to the outlier</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_zoom</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">150</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#View data set for las vegas strip massacre only</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#only filter for las vegas strip</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"Las Vegas Strip"</span>,case))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 14
+  case        year month   day location summary fatalities injured total_victims
+  &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;
+1 Las Vegas…  2017 Oct       1 Las Veg… "Steph…         58     546           604
+# ℹ 5 more variables: location_type &lt;chr&gt;, male &lt;lgl&gt;, age_of_shooter &lt;dbl&gt;,
+#   race &lt;chr&gt;, prior_mental_illness &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#only shows the 1 entry as required</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#assume total victims means to exclude the shooter from the total</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#manipulate data for the boxplot</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out for victim count NA and for the las vegas strip massacre</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(total_victims) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Las Vegas Strip"</span>,case)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#replace NA race entries with 'Unknown'</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">location=</span> <span class="fu">case_when</span>( <span class="sc">!</span><span class="fu">is.na</span>(location_type)  <span class="sc">~</span> location_type, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Other'</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create a plot</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>location_type,<span class="at">y=</span>total_victims)) <span class="sc">+</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>How many white males with prior signs of mental illness initiated a mass shooting after 2000?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Prior_Mental_2000 <span class="ot">&lt;-</span> mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter for year&gt;= 2000, for white males only</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (year<span class="sc">&gt;=</span><span class="dv">2000</span> <span class="sc">&amp;</span> race<span class="sc">==</span><span class="st">'White'</span> <span class="sc">&amp;</span> male<span class="sc">==</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Convert NA's to a new category 'Unknown'</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#this will allow us to see what proportion of mass shooters have a hidden history in terms of mental     illness which will help to validate/invalidate any conclusions</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prior_mental_illness=</span> <span class="fu">case_when</span>( <span class="sc">!</span><span class="fu">is.na</span>(prior_mental_illness)  </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                                <span class="sc">~</span> prior_mental_illness, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Unknown'</span>),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>         <span class="co">#add an arbitrary weighting column</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">n=</span><span class="dv">1</span>, </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>         <span class="co">#add column calculating the % share each case has to the total based on current equal weighting</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">percent=</span>n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by prior_mental_illness</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(prior_mental_illness) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#summaries data for count of each</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent =</span> <span class="fu">sum</span>(percent))</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>Prior_Mental_2000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  prior_mental_illness Count percent
+  &lt;chr&gt;                &lt;int&gt;   &lt;dbl&gt;
+1 No                       4  0.0889
+2 Unknown                 18  0.4   
+3 Yes                     23  0.511 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;50% of white males had a history of prior mental illness since 2000, however &gt;40% also had an unknown history</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#hence it would be  be unreliable to draw a conclusion from the data, given the unknown portion represents a significant portion of the data.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#instead lets exclude the unknowns and see of the cases with known mental health history what the proportions are if we assume the unknown data behaviors can be assimilated by the behavior of the known dataset</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>Prior_Mental_2000_v2 <span class="ot">&lt;-</span> mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter for year&gt;= 2000, for white males only &amp; exclude NA values in prior mental illness</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span> (year<span class="sc">&gt;=</span><span class="dv">2000</span> <span class="sc">&amp;</span> race<span class="sc">==</span><span class="st">'White'</span> <span class="sc">&amp;</span> male<span class="sc">==</span><span class="cn">TRUE</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(prior_mental_illness)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(        <span class="co">#add an arbitrary weighting column</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">n=</span><span class="dv">1</span>, </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>         <span class="co">#add column calculating the % share each case has to the total based on current equal weighting</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">percent=</span>n<span class="sc">/</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by prior_mental_illness</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(prior_mental_illness) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#summaries data for count of each</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">n</span>(),</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent =</span> <span class="fu">sum</span>(percent))</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>Prior_Mental_2000_v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  prior_mental_illness Count percent
+  &lt;chr&gt;                &lt;int&gt;   &lt;dbl&gt;
+1 No                       4   0.148
+2 Yes                     23   0.852</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#of cases with a known history of mental illness for white males since 2000, almost 85% were perpetrated by individuals with a history of mental health issues.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#We could extrapolate this relation ship and assume the 85% of cases that have a history of prior mental illness holds</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#overall i believe the prior_mental_illness field has too many NA values to produce a strong conclusion on the relationship between cases and mental illness. However, we can clearly see that a large proportion of cases (&gt;50% at the minimum) show a history of mental illness which shows it is a significant factor, but a valid conclusion on the full extent of the relationship cannot be understood due to the limited data.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological (natural) order (Jan-Feb-Mar- etc) to provide evidence of your answer.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter for any month data missing</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(month)) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by month</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create bar chart</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>month)) <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">"#2A944D"</span>) <span class="sc">+</span> </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#order chronologically</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limits =</span> month.abb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can clearly be seen from the bar chart that February is the most dangerous month in term of number of shootings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>How does the distribution of mass shooting fatalities differ between White and Black shooters? What about White and Latino shooters?</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create list of races to be compared</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'Latino'</span>,<span class="st">'White'</span>, <span class="st">'Black'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a range of bar charts to compare distribution by month</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter for any total victims data missing</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Exclude las vegas strip case as it is a large outlier which will inflate the mean</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(total_victims) <span class="sc">&amp;</span> race <span class="sc">%in%</span> R <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"Las Vegas Strip"</span>,case)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create box plot as it is easy to compare IQR and means side by side</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>race,<span class="at">y=</span>total_victims)) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color=</span><span class="st">"darkred"</span>,<span class="at">fill=</span><span class="st">"lightblue"</span>) <span class="sc">+</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_zoom</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Black shooters have a lower median and narrower distribution of victims as compared to white shooters</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Latino shooters also have a lower median number of victims than white shooters, and a significantly narrower IQR vs white shooters.</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Overall white shooters appear to have a larger number of victims on average, with mass shootings from white shooters covering a wider range of victim totals as compared to Black/Latino</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="do">### Very open-ended</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#-   Are mass shootings with shooters suffering from mental illness different from mass shootings with no #signs of mental illness in the shooter?</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#utilize data frame created earlier comparing Yes/No mental health issues, excusing cases where mental health history was unknown</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create unknown category for NA's</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prior_mental_illness=</span> <span class="fu">case_when</span>(<span class="sc">!</span><span class="fu">is.na</span>(prior_mental_illness) <span class="sc">~</span> prior_mental_illness, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Unknown'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by prior_mental_illness</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(prior_mental_illness) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>prior_mental_illness,<span class="at">y=</span>total_victims)) <span class="sc">+</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">"white"</span>,<span class="at">color=</span><span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_zoom</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#From the limited data we have on prior mental illness, we can clearly see that shootings with a history of mental illness for the shooter on average have a higher total victim count, and a significantly wider range/IQR in the total number of victims Vs those without a history of mental illness.</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Again however,we can see from the plot of the cases with an unknown history of mental illness that they exhibit a lower median and intermediate IQR when compared to Yes/No, which could skew the conclusion depending on how those unknown data points are catagorised. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Assess the relationship between mental illness and total victims, mental illness and location type, and the intersection of all three variables.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Mental illness and total victims comparison</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create unknown category for NA's</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prior_mental_illness=</span> <span class="fu">case_when</span>(<span class="sc">!</span><span class="fu">is.na</span>(prior_mental_illness) <span class="sc">~</span> prior_mental_illness, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Unknown'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by prior_mental_illness</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(prior_mental_illness) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>prior_mental_illness,<span class="at">y=</span>total_victims)) <span class="sc">+</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_zoom</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Explanation from previous</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co">#From the limited data we have on prior mental illness, we can clearly see that shootings with a history of mental illness for the shooter on average have a higher total victim count, and a significantly wider range/IQR in the total number of victims Vs those without a history of mental illness.</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Again however,we can see from the plot of the cases with an unknown history of mental illness that they exhibit a lower median and intermediate IQR when compared to Yes/No, which could skew the conclusion depending on how those unknown data points are catagorised. </span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Mental illness and location type comparison</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create unknown category for NA's</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prior_mental_illness=</span> <span class="fu">case_when</span>(<span class="sc">!</span><span class="fu">is.na</span>(prior_mental_illness) <span class="sc">~</span> prior_mental_illness, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Unknown'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by prior_mental_illness</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location_type, prior_mental_illness) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Summarise count for each category</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#multiple bar chart</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(location_type, count, <span class="at">fill =</span> prior_mental_illness)) <span class="sc">+</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'location_type'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#consistent trend with prior mental illness producing more cases in each location, except in the military where interestingly unknown history of mental illness was the most cases.</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co">#intersection of mental illness, location, total victims comparison</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>mass_shootings <span class="sc">%&gt;%</span> </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create unknown category for NA's</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prior_mental_illness=</span> <span class="fu">case_when</span>(<span class="sc">!</span><span class="fu">is.na</span>(prior_mental_illness) <span class="sc">~</span> prior_mental_illness, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">'Unknown'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#group by prior_mental_illness</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(location_type, prior_mental_illness) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#multiple bar chart</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(location_type, total_victims, <span class="at">fill =</span> prior_mental_illness)) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_zoom</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#a consistent trend across all location with a history of mental illness leading to a higher total victim count Vs no history of mental illness.</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Additionally, cases where prior mental health history is unknown also appear to have a high total victim count which could imply a significant portion of that population may also have a history of mental illness. Although, there is not enough data/information on the data to draw such a conclusion currently.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="obtain-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="obtain-the-data">Obtain the data</h2>
+<p>The dataset is too large to be hosted on Canvas or Github, so please download it from dropbox https://www.dropbox.com/sh/q1yk8mmnbbrzavl/AAAxzRtIhag9Nc_hODafGV2ka?dl=0 and save it in your <code>dsb</code> repo, under the <code>data</code> folder</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 671,028
+Columns: 14
+$ trans_date_trans_time &lt;dttm&gt; 2019-02-22 07:32:58, 2019-02-16 15:07:20, 2019-…
+$ trans_year            &lt;dbl&gt; 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2020, …
+$ category              &lt;chr&gt; "entertainment", "kids_pets", "personal_care", "…
+$ amt                   &lt;dbl&gt; 7.79, 3.89, 8.43, 40.00, 54.04, 95.61, 64.95, 3.…
+$ city                  &lt;chr&gt; "Veedersburg", "Holloway", "Arnold", "Apison", "…
+$ state                 &lt;chr&gt; "IN", "OH", "MO", "TN", "CO", "GA", "MN", "AL", …
+$ lat                   &lt;dbl&gt; 40.1186, 40.0113, 38.4305, 35.0149, 39.4584, 32.…
+$ long                  &lt;dbl&gt; -87.2602, -80.9701, -90.3870, -85.0164, -106.385…
+$ city_pop              &lt;dbl&gt; 4049, 128, 35439, 3730, 277, 1841, 136, 190178, …
+$ job                   &lt;chr&gt; "Development worker, community", "Child psychoth…
+$ dob                   &lt;date&gt; 1959-10-19, 1946-04-03, 1985-03-31, 1991-01-28,…
+$ merch_lat             &lt;dbl&gt; 39.41679, 39.74585, 37.73078, 34.53277, 39.95244…
+$ merch_long            &lt;dbl&gt; -87.52619, -81.52477, -91.36875, -84.10676, -106…
+$ is_fraud              &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  trans_date_trans_time trans_year category        amt city   state   lat   long
+  &lt;dttm&gt;                     &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1 2019-02-22 07:32:58         2019 entertainment  7.79 Veede… IN     40.1  -87.3
+2 2019-02-16 15:07:20         2019 kids_pets      3.89 Hollo… OH     40.0  -81.0
+3 2019-12-27 22:25:34         2019 personal_care  8.43 Arnold MO     38.4  -90.4
+4 2019-03-03 10:11:39         2019 grocery_net   40    Apison TN     35.0  -85.0
+5 2019-02-09 17:14:54         2019 food_dining   54.0  Red C… CO     39.5 -106. 
+6 2019-09-09 01:19:59         2019 shopping_net  95.6  Irwin… GA     32.8  -83.2
+# ℹ 6 more variables: city_pop &lt;dbl&gt;, job &lt;chr&gt;, dob &lt;date&gt;, merch_lat &lt;dbl&gt;,
+#   merch_long &lt;dbl&gt;, is_fraud &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>The data dictionary is as follows</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>column(variable)</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>trans_date_trans_time</td>
+<td>Transaction DateTime</td>
+</tr>
+<tr class="even">
+<td>trans_year</td>
+<td>Transaction year</td>
+</tr>
+<tr class="odd">
+<td>category</td>
+<td>category of merchant</td>
+</tr>
+<tr class="even">
+<td>amt</td>
+<td>amount of transaction</td>
+</tr>
+<tr class="odd">
+<td>city</td>
+<td>City of card holder</td>
+</tr>
+<tr class="even">
+<td>state</td>
+<td>State of card holder</td>
+</tr>
+<tr class="odd">
+<td>lat</td>
+<td>Latitude location of purchase</td>
+</tr>
+<tr class="even">
+<td>long</td>
+<td>Longitude location of purchase</td>
+</tr>
+<tr class="odd">
+<td>city_pop</td>
+<td>card holder’s city population</td>
+</tr>
+<tr class="even">
+<td>job</td>
+<td>job of card holder</td>
+</tr>
+<tr class="odd">
+<td>dob</td>
+<td>date of birth of card holder</td>
+</tr>
+<tr class="even">
+<td>merch_lat</td>
+<td>Latitude Location of Merchant</td>
+</tr>
+<tr class="odd">
+<td>merch_long</td>
+<td>Longitude Location of Merchant</td>
+</tr>
+<tr class="even">
+<td>is_fraud</td>
+<td>Whether Transaction is Fraud (1) or Not (0)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>In this dataset, how likely are fraudulent transactions? Generate a table that summarizes the number and frequency of fraudulent transactions per year.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out transactions without a fraud flag</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by transaction year</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(trans_year) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#add a count of transactions and calculate frequency as total count/365 days</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">No_Frauds =</span> <span class="fu">n</span>(),</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">Freq_Fraud_per_day =</span> No_Frauds<span class="sc">/</span><span class="dv">365</span>,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">Freq_per_mins=</span> No_Frauds<span class="sc">/</span>(<span class="dv">365</span><span class="sc">*</span><span class="dv">24</span><span class="sc">*</span><span class="dv">60</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  trans_year No_Frauds Freq_Fraud_per_day Freq_per_mins
+       &lt;dbl&gt;     &lt;int&gt;              &lt;dbl&gt;         &lt;dbl&gt;
+1       2019    478646              1311.         0.911
+2       2020    192382               527.         0.366</code></pre>
+</div>
+</div>
+<ul>
+<li>How much money (in US$ terms) are fraudulent transactions costing the company? Generate a table that summarizes the total amount of legitimate and fraudulent transactions per year and calculate the % of fraudulent transactions, in US$ terms.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Summary_One <span class="ot">&lt;-</span> card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt)) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#mutate 2 new columns for fraudulent/none fraudulent transaction amt in USD</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Amt_Non_Fraudulent =</span> <span class="fu">case_when</span>(is_fraud<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>, <span class="cn">TRUE</span> <span class="sc">~</span> amt),</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Amt_Fraudulent =</span> <span class="fu">case_when</span>(is_fraud <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="dv">0</span>, <span class="cn">TRUE</span> <span class="sc">~</span> amt)) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by transaction year</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(trans_year) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#summaries total amount for non-fraudulent, fraudulent transactions, and the % share for fraudulent transactions in term of value</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total_Non_Fraudulent =</span> <span class="fu">sum</span>(Amt_Non_Fraudulent),</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">Total_Fraudulent =</span> <span class="fu">sum</span>(Amt_Fraudulent),</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_fraud=</span> Total_Fraudulent<span class="sc">/</span>(Total_Non_Fraudulent<span class="sc">+</span>Total_Fraudulent))</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>Summary_One</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  trans_year Total_Non_Fraudulent Total_Fraudulent percent_fraud
+       &lt;dbl&gt;                &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;
+1       2019            32182901.         1423140.        0.0423
+2       2020            12925914.          651949.        0.0480</code></pre>
+</div>
+</div>
+<ul>
+<li>Generate a histogram that shows the distribution of amounts charged to credit card, both for legitimate and fraudulent accounts. Also, for both types of transactions, calculate some quick summary statistics.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt) ) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by is fraud</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(is_fraud) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Create histogram plot</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>amt)) <span class="sc">+</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>is_fraud, <span class="at">scales =</span> <span class="st">"free"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary statistics</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary for fraudulent</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt) <span class="sc">&amp;</span> is_fraud<span class="sc">==</span><span class="dv">1</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">%&gt;%(…)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">3936</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">POSIXct</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">category</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">city</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">699</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">state</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">job</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">441</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: Date</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">min</th>
+<th style="text-align: left;">max</th>
+<th style="text-align: left;">median</th>
+<th style="text-align: right;">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dob</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1925-08-29</td>
+<td style="text-align: left;">2005-01-29</td>
+<td style="text-align: left;">1971-08-20</td>
+<td style="text-align: right;">749</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">trans_year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2019.31</td>
+<td style="text-align: right;">0.46</td>
+<td style="text-align: right;">2019.00</td>
+<td style="text-align: right;">2019.00</td>
+<td style="text-align: right;">2019.00</td>
+<td style="text-align: right;">2020.00</td>
+<td style="text-align: right;">2020.00</td>
+<td style="text-align: left;">▇▁▁▁▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amt</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">527.21</td>
+<td style="text-align: right;">391.29</td>
+<td style="text-align: right;">1.06</td>
+<td style="text-align: right;">240.49</td>
+<td style="text-align: right;">368.83</td>
+<td style="text-align: right;">900.94</td>
+<td style="text-align: right;">1334.07</td>
+<td style="text-align: left;">▇▇▃▇▂</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lat</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">38.65</td>
+<td style="text-align: right;">5.10</td>
+<td style="text-align: right;">20.03</td>
+<td style="text-align: right;">35.06</td>
+<td style="text-align: right;">39.43</td>
+<td style="text-align: right;">41.84</td>
+<td style="text-align: right;">66.69</td>
+<td style="text-align: left;">▁▆▇▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">long</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-89.91</td>
+<td style="text-align: right;">14.29</td>
+<td style="text-align: right;">-165.67</td>
+<td style="text-align: right;">-96.70</td>
+<td style="text-align: right;">-86.69</td>
+<td style="text-align: right;">-79.99</td>
+<td style="text-align: right;">-68.56</td>
+<td style="text-align: left;">▁▁▂▆▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">city_pop</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">94096.13</td>
+<td style="text-align: right;">328508.72</td>
+<td style="text-align: right;">23.00</td>
+<td style="text-align: right;">741.00</td>
+<td style="text-align: right;">2526.00</td>
+<td style="text-align: right;">19803.00</td>
+<td style="text-align: right;">2906700.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">merch_lat</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">38.64</td>
+<td style="text-align: right;">5.16</td>
+<td style="text-align: right;">19.53</td>
+<td style="text-align: right;">35.12</td>
+<td style="text-align: right;">39.42</td>
+<td style="text-align: right;">41.92</td>
+<td style="text-align: right;">67.44</td>
+<td style="text-align: left;">▁▆▇▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">merch_long</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-89.91</td>
+<td style="text-align: right;">14.30</td>
+<td style="text-align: right;">-166.40</td>
+<td style="text-align: right;">-96.72</td>
+<td style="text-align: right;">-86.88</td>
+<td style="text-align: right;">-79.91</td>
+<td style="text-align: right;">-67.57</td>
+<td style="text-align: left;">▁▁▂▆▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">is_fraud</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">▁▁▇▁▁</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: POSIXct</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">min</th>
+<th style="text-align: left;">max</th>
+<th style="text-align: left;">median</th>
+<th style="text-align: right;">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">trans_date_trans_time</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">2019-01-02 01:06:37</td>
+<td style="text-align: left;">2020-06-21 03:59:46</td>
+<td style="text-align: left;">2019-09-29 05:54:09</td>
+<td style="text-align: right;">3936</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Summary for Non-fraudulent</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">skim</span>(card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt) <span class="sc">&amp;</span> is_fraud<span class="sc">==</span><span class="dv">0</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">%&gt;%(…)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">667092</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">POSIXct</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">category</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">city</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">836</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">state</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">job</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">475</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: Date</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">min</th>
+<th style="text-align: left;">max</th>
+<th style="text-align: left;">median</th>
+<th style="text-align: right;">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dob</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">1924-10-30</td>
+<td style="text-align: left;">2005-01-29</td>
+<td style="text-align: left;">1975-11-30</td>
+<td style="text-align: right;">894</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">trans_year</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2019.29</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">2019.00</td>
+<td style="text-align: right;">2019.00</td>
+<td style="text-align: right;">2019.00</td>
+<td style="text-align: right;">2020.00</td>
+<td style="text-align: right;">2020.00</td>
+<td style="text-align: left;">▇▁▁▁▃</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">amt</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">67.62</td>
+<td style="text-align: right;">155.29</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">9.60</td>
+<td style="text-align: right;">47.17</td>
+<td style="text-align: right;">82.41</td>
+<td style="text-align: right;">27119.77</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lat</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">38.54</td>
+<td style="text-align: right;">5.08</td>
+<td style="text-align: right;">20.03</td>
+<td style="text-align: right;">34.62</td>
+<td style="text-align: right;">39.35</td>
+<td style="text-align: right;">41.89</td>
+<td style="text-align: right;">65.69</td>
+<td style="text-align: left;">▁▅▇▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">long</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-90.23</td>
+<td style="text-align: right;">13.75</td>
+<td style="text-align: right;">-165.67</td>
+<td style="text-align: right;">-96.80</td>
+<td style="text-align: right;">-87.48</td>
+<td style="text-align: right;">-80.16</td>
+<td style="text-align: right;">-67.95</td>
+<td style="text-align: left;">▁▁▂▆▇</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">city_pop</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">88875.59</td>
+<td style="text-align: right;">302715.77</td>
+<td style="text-align: right;">23.00</td>
+<td style="text-align: right;">741.00</td>
+<td style="text-align: right;">2456.00</td>
+<td style="text-align: right;">20328.00</td>
+<td style="text-align: right;">2906700.00</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">merch_lat</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">38.53</td>
+<td style="text-align: right;">5.11</td>
+<td style="text-align: right;">19.03</td>
+<td style="text-align: right;">34.73</td>
+<td style="text-align: right;">39.37</td>
+<td style="text-align: right;">41.95</td>
+<td style="text-align: right;">66.68</td>
+<td style="text-align: left;">▁▅▇▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">merch_long</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-90.23</td>
+<td style="text-align: right;">13.77</td>
+<td style="text-align: right;">-166.67</td>
+<td style="text-align: right;">-96.90</td>
+<td style="text-align: right;">-87.44</td>
+<td style="text-align: right;">-80.23</td>
+<td style="text-align: right;">-66.95</td>
+<td style="text-align: left;">▁▁▂▆▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">is_fraud</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: left;">▁▁▇▁▁</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: POSIXct</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">min</th>
+<th style="text-align: left;">max</th>
+<th style="text-align: left;">median</th>
+<th style="text-align: right;">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">trans_date_trans_time</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">2019-01-01 00:00:51</td>
+<td style="text-align: left;">2020-06-21 12:12:32</td>
+<td style="text-align: left;">2019-10-03 16:40:52</td>
+<td style="text-align: right;">661249</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>What types of purchases are most likely to be instances of fraud? Consider category of merchants and produce a bar chart that shows % of total fraudulent transactions sorted in order.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by transaction year</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(category ) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#summaries total amount for non-fraudulent, fraudulent transactions, and the % share for fraudulent transactions in term of value</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Total_Fraudulent =</span> <span class="fu">sum</span>(is_fraud),</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">Total_Non_Fraudulent =</span> <span class="fu">length</span>(is_fraud) <span class="sc">-</span><span class="fu">sum</span>(is_fraud),</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">percent_fraud=</span> Total_Fraudulent<span class="sc">/</span>(Total_Non_Fraudulent<span class="sc">+</span>Total_Fraudulent)) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Order by most to least likely for fraudulent transaction</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">category =</span><span class="fu">fct_rev</span>(<span class="fu">fct_reorder</span>(category,percent_fraud))) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#bar chart plot</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>category, percent_fraud)) <span class="sc">+</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#plot on a barchart</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_economist</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#When is fraud most prevalent - day,month,year</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt) <span class="sc">&amp;</span> is_fraud<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Separate transaction date into individual fields</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">date_only =</span> lubridate<span class="sc">::</span><span class="fu">date</span>(trans_date_trans_time),</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">month_name =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(trans_date_trans_time, <span class="at">label=</span><span class="cn">TRUE</span>),</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(trans_date_trans_time),</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">weekday =</span> lubridate<span class="sc">::</span><span class="fu">wday</span>(trans_date_trans_time, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Group by Day &amp; summaries count</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(weekday) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="co">#arrange descending</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 2
+  weekday count
+  &lt;ord&gt;   &lt;int&gt;
+1 Mon       639
+2 Sat       626
+3 Sun       608
+4 Fri       557
+5 Thu       542
+6 Tue       496
+7 Wed       468</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#monday the day with most fraud cases</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt) <span class="sc">&amp;</span> is_fraud<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Separate transaction date into individual fields</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">date_only =</span> lubridate<span class="sc">::</span><span class="fu">date</span>(trans_date_trans_time),</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">month_name =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(trans_date_trans_time, <span class="at">label=</span><span class="cn">TRUE</span>),</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(trans_date_trans_time),</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">weekday =</span> lubridate<span class="sc">::</span><span class="fu">wday</span>(trans_date_trans_time, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Group by Day &amp; summaries count</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(month_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="co">#arrange descending to see the most fraudulent months</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 2
+   month_name count
+   &lt;ord&gt;      &lt;int&gt;
+ 1 Mar          472
+ 2 May          472
+ 3 Jan          461
+ 4 Feb          434
+ 5 Jun          387
+ 6 Apr          349
+ 7 Dec          301
+ 8 Nov          226
+ 9 Sep          219
+10 Oct          218
+11 Aug          213
+12 Jul          184</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#March and may are tied for the most fraudulent months with 472 cases</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="sc">%&gt;%</span> </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter out transactions without a fraud flag or amt</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(amt) <span class="sc">&amp;</span> is_fraud<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Separate transaction date into individual fields</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">date_only =</span> lubridate<span class="sc">::</span><span class="fu">date</span>(trans_date_trans_time),</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">month_name =</span> lubridate<span class="sc">::</span><span class="fu">month</span>(trans_date_trans_time, <span class="at">label=</span><span class="cn">TRUE</span>),</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">hour =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(trans_date_trans_time),</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">weekday =</span> lubridate<span class="sc">::</span><span class="fu">wday</span>(trans_date_trans_time, <span class="at">label =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Group by Day &amp; summaries count</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(trans_year) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="co">#arrange descending to see the most fraudulent year</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  trans_year count
+       &lt;dbl&gt; &lt;int&gt;
+1       2019  2721
+2       2020  1215</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#2019 had the most fraud cases</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Is fraud related to distance? The distance between a card holder’s home and the location of the transaction can be a feature that is related to fraud. To calculate distance, we need the latidue/longitude of card holders’s home and the latitude/longitude of the transaction, and we will use the <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine formula</a> to calculate distance. I adapted code to <a href="https://www.geeksforgeeks.org/program-distance-two-points-earth/amp/">calculate distance between two points on earth</a> which you can find below</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distance between card holder's home and transaction</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># code adapted from https://www.geeksforgeeks.org/program-distance-two-points-earth/amp/</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="ot">&lt;-</span> card_fraud <span class="sc">%&gt;%</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert latitude/longitude to radians</span></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat1_radians =</span> lat <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat2_radians =</span> merch_lat <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">long1_radians =</span> long <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">long2_radians =</span> merch_long <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate distance in miles</span></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_miles =</span> <span class="fl">3963.0</span> <span class="sc">*</span> <span class="fu">acos</span>((<span class="fu">sin</span>(lat1_radians) <span class="sc">*</span> <span class="fu">sin</span>(lat2_radians)) <span class="sc">+</span> <span class="fu">cos</span>(lat1_radians) <span class="sc">*</span> <span class="fu">cos</span>(lat2_radians) <span class="sc">*</span> <span class="fu">cos</span>(long2_radians <span class="sc">-</span> long1_radians)),</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate distance in km</span></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_km =</span> <span class="fl">6377.830272</span> <span class="sc">*</span> <span class="fu">acos</span>((<span class="fu">sin</span>(lat1_radians) <span class="sc">*</span> <span class="fu">sin</span>(lat2_radians)) <span class="sc">+</span> <span class="fu">cos</span>(lat1_radians) <span class="sc">*</span> <span class="fu">cos</span>(lat2_radians) <span class="sc">*</span> <span class="fu">cos</span>(long2_radians <span class="sc">-</span> long1_radians))</span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plot a boxplot or a violin plot that looks at the relationship of distance and <code>is_fraud</code>. Does distance seem to be a useful feature in explaining fraud?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Explore relationship for distance of fraud by plotting count of fraud cases by distance_km</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>card_fraud <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert latitude/longitude to radians</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat1_radians =</span> lat <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">lat2_radians =</span> merch_lat <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">long1_radians =</span> long <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">long2_radians =</span> merch_long <span class="sc">/</span> <span class="fl">57.29577951</span>,</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate distance in miles</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_miles =</span> <span class="fl">3963.0</span> <span class="sc">*</span> <span class="fu">acos</span>((<span class="fu">sin</span>(lat1_radians) <span class="sc">*</span> <span class="fu">sin</span>(lat2_radians)) <span class="sc">+</span> <span class="fu">cos</span>(lat1_radians) <span class="sc">*</span> <span class="fu">cos</span>(lat2_radians) <span class="sc">*</span> <span class="fu">cos</span>(long2_radians <span class="sc">-</span> long1_radians)),</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calculate distance in km</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">distance_km =</span> <span class="fl">6377.830272</span> <span class="sc">*</span> <span class="fu">acos</span>((<span class="fu">sin</span>(lat1_radians) <span class="sc">*</span> <span class="fu">sin</span>(lat2_radians)) <span class="sc">+</span> <span class="fu">cos</span>(lat1_radians) <span class="sc">*</span> <span class="fu">cos</span>(lat2_radians) <span class="sc">*</span> <span class="fu">cos</span>(long2_radians <span class="sc">-</span> long1_radians)) </span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">%&gt;%</span> <span class="co">#</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#convert is)fraud to yes, no</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">is_fraud=</span>  <span class="fu">case_when</span>( <span class="sc">!</span><span class="fu">is.na</span>(is_fraud) <span class="sc">&amp;</span> is_fraud<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Yes"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="fu">case_when</span>( <span class="sc">!</span><span class="fu">is.na</span>(is_fraud)<span class="sc">~</span> <span class="st">"No"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Unknown"</span>)))<span class="sc">%&gt;%</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Group by is_fraud</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(is_fraud) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create scatter plot to view distribution</span></span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>is_fraud,<span class="at">y=</span>distance_km)) <span class="sc">+</span></span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="homework2-Assad-Ahmed-Final-Submitted_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exploring-sources-of-electricity-production-co2-emissions-and-gdp-per-capita." class="level1">
+<h1>Exploring sources of electricity production, CO2 emissions, and GDP per capita.</h1>
+<p>There are many sources of data on how countries generate their electricity and their CO2 emissions. I would like you to create three graphs:</p>
+<section id="a-stacked-area-chart-that-shows-how-your-own-country-generated-its-electricity-since-2000." class="level2">
+<h2 class="anchored" data-anchor-id="a-stacked-area-chart-that-shows-how-your-own-country-generated-its-electricity-since-2000.">1. A stacked area chart that shows how your own country generated its electricity since 2000.</h2>
+<p>You will use</p>
+<p><code>geom_area(colour="grey90", alpha = 0.5, position = "fill")</code></p>
+</section>
+<section id="a-scatter-plot-that-looks-at-how-co2-per-capita-and-gdp-per-capita-are-related" class="level2">
+<h2 class="anchored" data-anchor-id="a-scatter-plot-that-looks-at-how-co2-per-capita-and-gdp-per-capita-are-related">2. A scatter plot that looks at how CO2 per capita and GDP per capita are related</h2>
+</section>
+<section id="a-scatter-plot-that-looks-at-how-electricity-usage-kwh-per-capitaday-gdp-per-capita-are-related" class="level2">
+<h2 class="anchored" data-anchor-id="a-scatter-plot-that-looks-at-how-electricity-usage-kwh-per-capitaday-gdp-per-capita-are-related">3. A scatter plot that looks at how electricity usage (kWh) per capita/day GDP per capita are related</h2>
+<p>We will get energy data from the Our World in Data website, and CO2 and GDP per capita emissions from the World Bank, using the <code>wbstats</code>package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download electricity data</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>energy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;=</span> <span class="dv">1990</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(iso_code) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">biofuel =</span> biofuel_electricity,</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">coal =</span> coal_electricity,</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">gas =</span> gas_electricity,</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">hydro =</span> hydro_electricity,</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">nuclear =</span> nuclear_electricity,</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">oil =</span> oil_electricity,</span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">other_renewable =</span> other_renewable_exc_biofuel_electricity,</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">solar =</span> solar_electricity,</span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">wind =</span> wind_electricity, </span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>         electricity_demand,</span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>         electricity_generation,</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>         net_elec_imports,  <span class="co"># Net electricity imports, measured in terawatt-hours</span></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>         energy_per_capita, <span class="co"># Primary energy consumption per capita, measured in kilowatt-hours Calculated by Our World in Data based on BP Statistical Review of World Energy and EIA International Energy Data</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>         energy_per_gdp,    <span class="co"># Energy consumption per unit of GDP. This is measured in kilowatt-hours per 2011 international-$.</span></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>         per_capita_electricity, <span class="co">#  Electricity generation per capita, measured in kilowatt-hours</span></span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 21890 Columns: 129
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr   (2): country, iso_code
+dbl (127): year, population, gdp, biofuel_cons_change_pct, biofuel_cons_chan...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data for C02 emissions per capita https://data.worldbank.org/indicator/EN.ATM.CO2E.PC</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>co2_percap <span class="ot">&lt;-</span> <span class="fu">wb_data</span>(<span class="at">country =</span> <span class="st">"countries_only"</span>, </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">indicator =</span> <span class="st">"EN.ATM.CO2E.PC"</span>, </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">start_date =</span> <span class="dv">1990</span>, </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">end_date =</span> <span class="dv">2022</span>,</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">return_wide=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">#drop unwanted variables</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(unit, obs_status, footnote, last_updated)) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">year =</span> date,</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">co2percap =</span> value)</span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data for GDP per capita  https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>gdp_percap <span class="ot">&lt;-</span> <span class="fu">wb_data</span>(<span class="at">country =</span> <span class="st">"countries_only"</span>, </span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>                      <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.PP.KD"</span>, </span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>                      <span class="at">start_date =</span> <span class="dv">1990</span>, </span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>                      <span class="at">end_date =</span> <span class="dv">2022</span>,</span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a>                      <span class="at">return_wide=</span><span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">#drop unwanted variables</span></span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(unit, obs_status, footnote, last_updated)) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">year =</span> date,</span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a>         <span class="at">GDPpercap =</span> value)</span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="co">#glimpse the new dataframes</span></span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(energy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 6,951
+Columns: 18
+$ country                &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "A…
+$ year                   &lt;dbl&gt; 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997,…
+$ iso_code               &lt;chr&gt; "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG"…
+$ biofuel                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0…
+$ coal                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0…
+$ gas                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0…
+$ hydro                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0.31, 0…
+$ nuclear                &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0…
+$ oil                    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0.16, 0…
+$ other_renewable        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0…
+$ solar                  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0.00, 0…
+$ wind                   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0, 0, 0…
+$ electricity_demand     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0.57, 0…
+$ electricity_generation &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0.47, 0…
+$ net_elec_imports       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 0.10, 0…
+$ energy_per_capita      &lt;dbl&gt; 2968.316, 1293.862, 760.342, 650.207, 570.403, …
+$ energy_per_gdp         &lt;dbl&gt; 2.430, 1.154, 0.723, 0.926, 1.113, 0.604, 0.604…
+$ per_capita_electricity &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 24.050,…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(gdp_percap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,898
+Columns: 7
+$ indicator_id &lt;chr&gt; "NY.GDP.PCAP.PP.KD", "NY.GDP.PCAP.PP.KD", "NY.GDP.PCAP.PP…
+$ indicator    &lt;chr&gt; "GDP per capita, PPP (constant 2017 international $)", "G…
+$ iso2c        &lt;chr&gt; "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF…
+$ iso3c        &lt;chr&gt; "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "…
+$ country      &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan…
+$ year         &lt;dbl&gt; 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 2013, 201…
+$ GDPpercap    &lt;dbl&gt; 1516.306, 1968.341, 2079.922, 2060.699, 2096.093, 2101.42…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(co2_percap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,729
+Columns: 7
+$ indicator_id &lt;chr&gt; "EN.ATM.CO2E.PC", "EN.ATM.CO2E.PC", "EN.ATM.CO2E.PC", "EN…
+$ indicator    &lt;chr&gt; "CO2 emissions (metric tons per capita)", "CO2 emissions …
+$ iso2c        &lt;chr&gt; "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF", "AF…
+$ iso3c        &lt;chr&gt; "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "AFG", "…
+$ country      &lt;chr&gt; "Afghanistan", "Afghanistan", "Afghanistan", "Afghanistan…
+$ year         &lt;dbl&gt; 2019, 2018, 2017, 2016, 2015, 2014, 2013, 2012, 2011, 201…
+$ co2percap    &lt;dbl&gt; 0.16085016, 0.16536691, 0.13418691, 0.15312098, 0.1761799…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Join the tables</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>energy_GDP <span class="ot">&lt;-</span> <span class="fu">left_join</span>(energy,gdp_percap,<span class="at">by=</span> <span class="fu">c</span>(<span class="st">"iso_code"</span><span class="ot">=</span><span class="st">"iso3c"</span>,<span class="st">"year"</span>))</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>energy_gdp_co <span class="ot">&lt;-</span> <span class="fu">left_join</span>(energy_GDP,co2_percap,<span class="at">by=</span> <span class="fu">c</span>(<span class="st">"iso_code"</span><span class="ot">=</span><span class="st">"iso3c"</span>,<span class="st">"year"</span>))</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co">#view top rows of joined table to ensure columns added</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(energy_gdp_co)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 28
+  country.x    year iso_code biofuel  coal   gas hydro nuclear   oil
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1 Afghanistan  1990 AFG           NA    NA    NA    NA      NA    NA
+2 Afghanistan  1991 AFG           NA    NA    NA    NA      NA    NA
+3 Afghanistan  1992 AFG           NA    NA    NA    NA      NA    NA
+4 Afghanistan  1993 AFG           NA    NA    NA    NA      NA    NA
+5 Afghanistan  1994 AFG           NA    NA    NA    NA      NA    NA
+6 Afghanistan  1995 AFG           NA    NA    NA    NA      NA    NA
+# ℹ 19 more variables: other_renewable &lt;dbl&gt;, solar &lt;dbl&gt;, wind &lt;dbl&gt;,
+#   electricity_demand &lt;dbl&gt;, electricity_generation &lt;dbl&gt;,
+#   net_elec_imports &lt;dbl&gt;, energy_per_capita &lt;dbl&gt;, energy_per_gdp &lt;dbl&gt;,
+#   per_capita_electricity &lt;dbl&gt;, indicator_id.x &lt;chr&gt;, indicator.x &lt;chr&gt;,
+#   iso2c.x &lt;chr&gt;, country.y &lt;chr&gt;, GDPpercap &lt;dbl&gt;, indicator_id.y &lt;chr&gt;,
+#   indicator.y &lt;chr&gt;, iso2c.y &lt;chr&gt;, country &lt;chr&gt;, co2percap &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<p>Specific questions:</p>
+<ol type="1">
+<li>How would you turn <code>energy</code> to long, tidy format?</li>
+</ol>
+<p>Utilize Pivot Longer and create an electricity type filed to collapse the multiple columns down to 2 (electricity type and then amount)</p>
+<ol start="2" type="1">
+<li>You may need to join these data frames
+<ul>
+<li>Use <code>left_join</code> from <code>dplyr</code> to <a href="http://r4ds.had.co.nz/relational-data.html">join the tables</a></li>
+<li>To complete the merge, you need a unique <em>key</em> to match observations between the data frames. Country names may not be consistent among the three data frames, so please use the 3-digit ISO code for each country</li>
+</ul></li>
+<li>Write a function that takes as input any country’s name and returns all three graphs. You can use the <code>patchwork</code> package to arrange the three graphs as shown below</li>
+</ol>
+</section>
+</section>
+<section id="details" class="level1">
+<h1>Details</h1>
+<ul>
+<li>Who did you collaborate with: NA</li>
+<li>Approximately how much time did you spend on this problem set: 4.5H</li>
+<li>What, if anything, gave you the most trouble: Visual editor stopped working partway through, unable to see previews of code run. Ran out of time to try the graphs on energy data, initially the code would not work to populate the CO2/GDP data frames (unsure why - EDIT: FOUND THE issue, it was some of the descriptive code used to help with the mutation in one of the questions running on too long). i ended up reopening everything and managed to get it to work,</li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
