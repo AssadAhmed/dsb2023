@@ -26,6 +26,7 @@ library(wbstats)
 library(skimr)
 library(countrycode)
 library(here)
+library(ggforce)
 ```
 
 # Data Visualisation - Exploration
@@ -88,19 +89,56 @@ mass_shootings_yearly
 -   Generate a bar chart that identifies the number of mass shooters associated with each race category. The bars should be sorted from highest to lowest and each bar should show its number.
 
 ```{r}
-
+#Creating a barchart for number of mass shooters with each race catagory
+mass_shootings %>% 
+  #replace NA race entries with 'Unknown'
+  #reorder from most to least frequent race
+  mutate(race= case_when( !is.na(race)  ~ race, TRUE ~ 'Other'),race=fct_infreq(race)) %>%
+  #use GGplot to produce a bar char, initialse x variable and aes
+  ggplot(aes(x=race)) +
+  #plot on a barchart
+  geom_bar() +
+  #add asthetic label
+  geom_text(aes(label = after_stat(count)), stat = "count", vjust = 1.1, colour = "white")
 ```
 
 -   Generate a boxplot visualizing the number of total victims, by type of location.
 
 ```{r}
-
+#assume total victims means to exclude the shooter from the total
+#manipulate data for the boxplot
+mass_shootings %>% 
+  #Filter out for victim count NA
+  filter(!is.na(total_victims)) %>% 
+  #replace NA race entries with 'Unknown'
+  mutate(location= case_when( !is.na(location_type)  ~ location_type, TRUE ~ 'Other')) %>%
+  #Create a plot
+  ggplot(aes(x=location_type,y=total_victims)) +
+  geom_boxplot() +
+  #facet zoom to better see the plots on a more reasonable scale due to the outlier
+  facet_zoom(ylim = c(0, 150))
 ```
 
 -   Redraw the same plot, but remove the Las Vegas Strip massacre from the dataset.
 
 ```{r}
+#View data set for las vegas strip massacre only
+mass_shootings %>% 
+  #only filter for las vegas strip
+  filter(grepl("Las Vegas Strip",case))
 
+#only shows the 1 entry as required
+
+#assume total victims means to exclude the shooter from the total
+#manipulate data for the boxplot
+mass_shootings %>% 
+  #Filter out for victim count NA and for the las vegas strip massacre
+  filter(!is.na(total_victims) & !grepl("Las Vegas Strip",case)) %>% 
+  #replace NA race entries with 'Unknown'
+  mutate(location= case_when( !is.na(location_type)  ~ location_type, TRUE ~ 'Other')) %>%
+  #Create a plot
+  ggplot(aes(x=location_type,y=total_victims)) +
+  geom_boxplot()
 ```
 
 ### More open-ended questions
@@ -110,6 +148,49 @@ Address the following questions. Generate appropriate figures/tables to support 
 -   How many white males with prior signs of mental illness initiated a mass shooting after 2000?
 
 ```{r}
+Prior_Mental_2000 <- mass_shootings %>% 
+  #Filter for year>= 2000, for white males only
+  filter (year>=2000 & race=='White' & male==TRUE) %>% 
+  #Convert NA's to a new category 'Unknown'
+  #this will allow us to see what proportion of mass shooters have a hidden history in terms of mental     illness which will help to validate/invalidate any conclusions
+  mutate(prior_mental_illness= case_when( !is.na(prior_mental_illness)  
+                                ~ prior_mental_illness, TRUE ~ 'Unknown'),
+         #add an arbitary weighting clumn
+         n=1, 
+         #add column calculating the % share each case has to the total based on current equal weighting
+         percent=n/sum(n)) %>%
+  #grup by prior_mental_illness
+  group_by(prior_mental_illness) %>% 
+  #summarise data for count of each
+  summarize(Count = n(),
+            percent = sum(percent))
+
+Prior_Mental_2000
+#>50% of white males had a history of prior mental illness since 2000, however >40% also had an unknown history
+#hence it would be  be unreliable to draw a conclusion from the data, given the unknoen portion representa a significant portion of the data.
+
+#instead lets exclude the unknowns and see of the cases with known mental health histry what the proportions are if we assume the unknonwn data behaviours can be assimilated by the behaviour ofthe known dataset
+
+Prior_Mental_2000_v2 <- mass_shootings %>% 
+  #Filter for year>= 2000, for white males only & exlcude NA values in prior mental ilness
+  filter (year>=2000 & race=='White' & male==TRUE & !is.na(prior_mental_illness)) %>% 
+  mutate(        #add an arbitary weighting clumn
+         n=1, 
+         #add column calculating the % share each case has to the total based on current equal weighting
+         percent=n/sum(n)) %>%
+  #grup by prior_mental_illness
+  group_by(prior_mental_illness) %>% 
+  #summarise data for count of each
+  summarize(Count = n(),
+            percent = sum(percent))
+
+Prior_Mental_2000_v2
+
+#of cases with a known history of mental illness for white males since 2000, almost 85% were perpetrated by individuals with a history of mental health issues.
+#We could extrapolate this relation ship and assume the 85% of cases that have a history of prior mental ilness holds
+
+#overall i belive the prior_mental_illness field has too many NA values to produce a strong conclusion on the relationship between cases and mental ilness. However, we can clearly see that a large proportion of cases (>50% at the minimum) show a history of mental illness which shows it is a significant factor, but a valid conclusion on the full extent of the relationship cannot be understood due to the limited data.
+
 
 ```
 
@@ -117,17 +198,57 @@ Address the following questions. Generate appropriate figures/tables to support 
 
 ```{r}
 
+mass_shootings %>% 
+  #Filter for any month data missing
+  filter(!is.na(month)) %>% 
+  #Group by month
+  group_by(month) %>% 
+  #create bar chart
+  ggplot(aes(x=month)) +
+  geom_bar() + 
+  #order chronologically
+  scale_x_discrete(limits = month.abb)
+  
+#It can clearly be seen from the bar chart that February is the most dangerous month in term sof number of shootings
+
 ```
 
 -   How does the distribution of mass shooting fatalities differ between White and Black shooters? What about White and Latino shooters?
 
 ```{r}
+#Create list of races to be compared
+R <- c('Latino','White', 'Black')
 
-```
+#Create a range of bar charts to compare distribution by month
+mass_shootings %>% 
+  #Filter for any total victims data missing
+  #Exclude las vegas strip case as it is a large outlier which will inflate the mean
+  filter(!is.na(total_victims) & race %in% R & !grepl("Las Vegas Strip",case)) %>% 
+  #create box plot as it is easy to compare IQR and means side by side
+  ggplot(aes(x=race,y=total_victims)) +
+  geom_boxplot() +
+  facet_zoom(ylim = c(0, 30)) 
+#Black shooters have a lower median and narrower distribution of victims as compared to white shooters
+#Lation shooters also have a lower median number of victims than white shooters, and a significantly narrower IQR vs white shooters.
+#Overall white shooters appear to have a larger number of victims on average, with mass shootings from white shooters covering a wider range of vitim totals as comapred to Balck/Lation
 
 ### Very open-ended
 
--   Are mass shootings with shooters suffering from mental illness different from mass shootings with no signs of mental illness in the shooter?
+#-   Are mass shootings with shooters suffering from mental illness different from mass shootings with no #signs of mental illness in the shooter?
+  
+#utilise dataframe created earlier comparing Yes/No mental health issues, excuding cases where mental health histroy was unknown
+
+mass_shootings %>% 
+  #create unknown catagory for NA's
+  mutate(prior_mental_illness= case_when(!is.na(prior_mental_illness) ~ prior_mental_illness, TRUE ~ 'Unknown')) %>% 
+  #group by prior_mental_illness
+  group_by(prior_mental_illness) %>% 
+  ggplot(aes(x=prior_mental_illness,y=total_victims)) +
+  geom_boxplot() +
+  facet_zoom(ylim = c(0, 30)) 
+
+#From the limited data we have on prior mental ilness, we can clearly see that shootings with a history of mental ilness for the shooter on average have a higher total victim count, and a significantly wider range/IQR in the total number of victimis Vs those without a history of mental illness.
+#Again however,we can see from the plot of the cases with an unknown histroy of mental illness that they exhibit a lower median and intermediate IQR when comapred to Yes/No, which could skew the conclusion depending on how those unknown datapoints are catagorised. 
 
 ```{r}
 
