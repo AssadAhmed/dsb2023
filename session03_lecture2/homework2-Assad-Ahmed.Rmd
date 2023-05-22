@@ -27,11 +27,18 @@ library(skimr)
 library(countrycode)
 library(here)
 library(ggforce)
-library(ggthemes)
 
 ```
 
-#loading in the data
+# Data Visualisation - Exploration
+
+Now that you've demonstrated your software is setup, and you have the basics of data manipulation, the goal of this assignment is to practice transforming, visualising, and exploring data.
+
+# Mass shootings in the US
+
+In July 2012, in the aftermath of a mass shooting in a movie theater in Aurora, Colorado, [Mother Jones](https://www.motherjones.com/politics/2012/07/mass-shootings-map/) published a report on mass shootings in the United States since 1982. Importantly, they provided the underlying data set as [an open-source database](https://www.motherjones.com/politics/2012/12/mass-shootings-mother-jones-full-data/) for anyone interested in studying and understanding this criminal behavior.
+
+## Obtain the data
 
 ```{r}
 #| echo: false
@@ -61,6 +68,9 @@ head(mass_shootings)
 | race                 | race of the shooter                                                         |
 | prior_mental_illness | did the shooter show evidence of mental illness prior to the incident?      |
 
+## Explore the data
+
+### Specific questions
 
 -   Generate a data frame that summarizes the number of mass shootings per year.
 
@@ -88,7 +98,7 @@ mass_shootings %>%
   #use GGplot to produce a bar char, initialse x variable and aes
   ggplot(aes(x=race)) +
   #plot on a barchart
-  geom_bar(fill='#09A1B5',color="#523886") +
+  geom_bar() +
   #add asthetic label
   geom_text(aes(label = after_stat(count)), stat = "count", vjust = 1.1, colour = "white")
 ```
@@ -105,7 +115,7 @@ mass_shootings %>%
   mutate(location= case_when( !is.na(location_type)  ~ location_type, TRUE ~ 'Other')) %>%
   #Create a plot
   ggplot(aes(x=location_type,y=total_victims)) +
-  geom_boxplot(color='darkblue') +
+  geom_boxplot() +
   #facet zoom to better see the plots on a more reasonable scale due to the outlier
   facet_zoom(ylim = c(0, 150))
 ```
@@ -193,7 +203,7 @@ mass_shootings %>%
   group_by(month) %>% 
   #create bar chart
   ggplot(aes(x=month)) +
-  geom_bar(fill="#2A944D") + 
+  geom_bar() + 
   #order chronologically
   scale_x_discrete(limits = month.abb)
   
@@ -214,7 +224,7 @@ mass_shootings %>%
   filter(!is.na(total_victims) & race %in% R & !grepl("Las Vegas Strip",case)) %>% 
   #create box plot as it is easy to compare IQR and means side by side
   ggplot(aes(x=race,y=total_victims)) +
-  geom_boxplot(color="darkred",fill="lightblue") +
+  geom_boxplot() +
   facet_zoom(ylim = c(0, 30)) 
 #Black shooters have a lower median and narrower distribution of victims as compared to white shooters
 #Lation shooters also have a lower median number of victims than white shooters, and a significantly narrower IQR vs white shooters.
@@ -232,12 +242,13 @@ mass_shootings %>%
   #group by prior_mental_illness
   group_by(prior_mental_illness) %>% 
   ggplot(aes(x=prior_mental_illness,y=total_victims)) +
-  geom_boxplot(fill="white",color="red") +
+  geom_boxplot() +
   facet_zoom(ylim = c(0, 30)) 
 
 #From the limited data we have on prior mental ilness, we can clearly see that shootings with a history of mental ilness for the shooter on average have a higher total victim count, and a significantly wider range/IQR in the total number of victimis Vs those without a history of mental illness.
 #Again however,we can see from the plot of the cases with an unknown histroy of mental illness that they exhibit a lower median and intermediate IQR when comapred to Yes/No, which could skew the conclusion depending on how those unknown datapoints are catagorised. 
 
+```{r}
 
 ```
 
@@ -287,6 +298,15 @@ mass_shootings %>%
 #a consistent trend across all location with a history of mental illness leading to a higher total victim count Vs no history of mental illness.
 #Additonally, cases where prior mental health history is unknown also appear to have a high total victim count which could imply a significant portion of that population may also have a history of mental illness. Although, there is not enough data/information on the data to draw such a conclusion currently.
 ```
+
+
+# Exploring credit card fraud
+
+We will be using a dataset with credit card transactions containing legitimate and fraud transactions. Fraud is typically well below 1% of all transactions, so a naive model that predicts that all transactions are legitimate and not fraudulent would have an accuracy of well over 99%-- pretty good, no? (well, not quite as we will see later in the course)
+
+You can read more on credit card fraud on [Credit Card Fraud Detection Using Weighted Support Vector Machine](https://www.scirp.org/journal/paperinformation.aspx?paperid=105944)
+
+The dataset we will use consists of credit card transactions and it includes information about each transaction including customer details, the merchant and category of purchase, and whether or not the transaction was a fraud.
 
 ## Obtain the data
 
@@ -403,9 +423,8 @@ card_fraud %>%
   #bar chart plot
   ggplot(aes(x=category, percent_fraud)) +
   #plot on a barchart
-  geom_col(fill="black") +
-  scale_y_continuous(labels = scales::percent_format()) +
-  theme_economist()
+  geom_col() +
+  scale_y_continuous(labels = scales::percent_format()) 
 ```         
 mutate(
   date_only = lubridate::date(trans_date_trans_time),
@@ -631,11 +650,22 @@ Utilise Pivot Longer and create an electricity type filed to collapse the multip
 
 3.  Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs as shown below
 
+
+# Deliverables
+
+There is a lot of explanatory text, comments, etc. You do not need these, so delete them and produce a stand-alone document that you could share with someone. Knit the edited and completed R Markdown (qmd) file as a Word or HTML document (use the "Knit" button at the top of the script editor window) and upload it to Canvas. You must be comitting and pushing your changes to your own Github repo as you go along.
+
 # Details
 
 -   Who did you collaborate with: NA
 -   Approximately how much time did you spend on this problem set: 4.5H
 -   What, if anything, gave you the most trouble: Visual editor stopped working partway thorugh, unable to see previes of code run.
-    Ran out of time to try the grsphs on energy data, initially the code would not work to populate the CO2/GDP data frames (unsure why). i ended up reopenining everything and managed to get it to work,
 
 
+# Rubric
+
+13/13: Problem set is 100% completed. Every question was attempted and answered, and most answers are correct. Code is well-documented (both self-documented and with additional comments as necessary). Used tidyverse, instead of base R. Graphs and tables are properly labelled. Analysis is clear and easy to follow, either because graphs are labeled clearly or you've written additional text to describe how you interpret the output. Multiple Github commits. Work is exceptional. I will not assign these often.
+
+8/13: Problem set is 60--80% complete and most answers are correct. This is the expected level of performance. Solid effort. Hits all the elements. No clear mistakes. Easy to follow (both the code and the output). A few Github commits.
+
+5/13: Problem set is less than 60% complete and/or most answers are incorrect. This indicates that you need to improve next time. I will hopefully not assign these often. Displays minimal effort. Doesn't complete all components. Code is poorly written and not documented. Uses the same type of plot for each graph, or doesn't use plots appropriate for the variables being analyzed. No Github commits.
