@@ -27,6 +27,7 @@ library(skimr)
 library(countrycode)
 library(here)
 library(ggforce)
+
 ```
 
 # Data Visualisation - Exploration
@@ -189,11 +190,6 @@ Prior_Mental_2000_v2
 
 #overall i belive the prior_mental_illness field has too many NA values to produce a strong conclusion on the relationship between cases and mental ilness. However, we can clearly see that a large proportion of cases (>50% at the minimum) show a history of mental illness which shows it is a significant factor, but a valid conclusion on the full extent of the relationship cannot be understood due to the limited data.
 
-
-=======
-Prior_Mental_200 <- mass_shootings %>% 
-  #Convert NA's to a new category 'Unknown'
->>>>>>> 17fcd9893772743f9ef243d36278466a3ee5f775
 ```
 
 -   Which month of the year has the most mass shootings? Generate a bar chart sorted in chronological (natural) order (Jan-Feb-Mar- etc) to provide evidence of your answer.
@@ -429,10 +425,6 @@ card_fraud %>%
   #plot on a barchart
   geom_col() +
   scale_y_continuous(labels = scales::percent_format()) 
-
- 
-
--   When is fraud more prevalent? Which days, months, hours? 
 ```         
 mutate(
   date_only = lubridate::date(trans_date_trans_time),
@@ -527,7 +519,7 @@ card_fraud <- card_fraud %>%
     distance_miles = 3963.0 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)),
 
     # calculate distance in km
-    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)
+    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians))
     
   )
 
@@ -538,6 +530,7 @@ card_fraud <- card_fraud %>%
 Plot a boxplot or a violin plot that looks at the relationship of distance and `is_fraud`. Does distance seem to be a useful feature in explaining fraud?
 
 ```{r}
+
 #Explore relationship for distance of fraud by plotting count of fraud cases by distance_km
 card_fraud %>%
   mutate(
@@ -552,18 +545,10 @@ card_fraud %>%
     distance_miles = 3963.0 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)),
 
     # calculate distance in km
-    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)
-    
-  ) %>% 
-#Convert NA's to a new category 'Unknown'
-#this will allow us to see what proportion of mass shooters have a hidden history in terms of mental     illness which will help to validate/invalidate any conclusions
-  mutate(prior_mental_illness= case_when( !is.na(prior_mental_illness)  
-                                ~ prior_mental_illness, TRUE ~ 'Unknown')) %>% 
+    distance_km = 6377.830272 * acos((sin(lat1_radians) * sin(lat2_radians)) + cos(lat1_radians) * cos(lat2_radians) * cos(long2_radians - long1_radians)) 
+    )%>% 
   ggplot(aes(x=is_fraud,y=distance_km)) +
-  geom_boxplot() +
-  facet_zoom(ylim = c(0, 30)) 
-  
-
+  geom_boxplot() 
   
   
 ```
@@ -586,8 +571,6 @@ You will use
 We will get energy data from the Our World in Data website, and CO2 and GDP per capita emissions from the World Bank, using the `wbstats`package.
 
 ```{r}
-#| message: false
-#| warning: false
 
 # Download electricity data
 url <- "https://nyc3.digitaloceanspaces.com/owid-public/data/energy/owid-energy-data.csv"
@@ -614,6 +597,7 @@ energy <- read_csv(url) %>%
   ) 
 
 # Download data for C02 emissions per capita https://data.worldbank.org/indicator/EN.ATM.CO2E.PC
+
 co2_percap <- wb_data(country = "countries_only", 
                       indicator = "EN.ATM.CO2E.PC", 
                       start_date = 1990, 
@@ -627,6 +611,7 @@ co2_percap <- wb_data(country = "countries_only",
 
 
 # Download data for GDP per capita  https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD
+
 gdp_percap <- wb_data(country = "countries_only", 
                       indicator = "NY.GDP.PCAP.PP.KD", 
                       start_date = 1990, 
@@ -637,22 +622,31 @@ gdp_percap <- wb_data(country = "countries_only",
   select(-c(unit, obs_status, footnote, last_updated)) %>% 
   rename(year = date,
          GDPpercap = value)
+         
+#glimpse the new dataframes
+glimpse(energy)
+glimpse(gdp_percap)
+glimpse(co2_percap)
+
+#Join the tables
+energy_GDP <- left_join(energy,gdp_percap,by= c("iso_code"="iso3c","year"))
+energy_gdp_co <- left_join(energy_GDP,co2_percap,by= c("iso_code"="iso3c","year"))
+
+#view joined table
+head(energy_gdp_co)
 ```
 
 Specific questions:
 
 1.  How would you turn `energy` to long, tidy format?
+
+Utilise Pivot Longer and create an electricity type filed to collapse the multiple columns down to 2 (electricty type and then amount)
+
 2.  You may need to join these data frames
     -   Use `left_join` from `dplyr` to [join the tables](http://r4ds.had.co.nz/relational-data.html)
     -   To complete the merge, you need a unique *key* to match observations between the data frames. Country names may not be consistent among the three dataframes, so please use the 3-digit ISO code for each country
-    -   An aside: There is a great package called [`countrycode`](https://github.com/vincentarelbundock/countrycode) that helps solve the problem of inconsistent country names (Is it UK? United Kingdom? Great Britain?). `countrycode()` takes as an input a country's name in a specific format and outputs it using whatever format you specify.
+
 3.  Write a function that takes as input any country's name and returns all three graphs. You can use the `patchwork` package to arrange the three graphs as shown below
-
-
-
-```{r, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "electricity-co2-gdp.png"), error = FALSE)
-```
 
 
 # Deliverables
@@ -661,13 +655,10 @@ There is a lot of explanatory text, comments, etc. You do not need these, so del
 
 # Details
 
--   Who did you collaborate with: TYPE NAMES HERE
--   Approximately how much time did you spend on this problem set: ANSWER HERE
--   What, if anything, gave you the most trouble: ANSWER HERE
+-   Who did you collaborate with: NA
+-   Approximately how much time did you spend on this problem set: 4.5H
+-   What, if anything, gave you the most trouble: Visual editor stopped working partway thorugh, unable to see previes of code run.
 
-**Please seek out help when you need it,** and remember the [15-minute rule](https://dsb2023.netlify.app/syllabus/#the-15-minute-rule){target="_blank"}. You know enough R (and have enough examples of code from class and your readings) to be able to do this. If you get stuck, ask for help from others, post a question on Slack-- and remember that I am here to help too!
-
-> As a true test to yourself, do you understand the code you submitted and are you able to explain it to someone else?
 
 # Rubric
 
