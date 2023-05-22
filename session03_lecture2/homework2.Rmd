@@ -257,10 +257,50 @@ mass_shootings %>%
 -   Assess the relationship between mental illness and total victims, mental illness and location type, and the intersection of all three variables.
 
 ```{r}
+#Mental ilness and total victims comparison
+mass_shootings %>% 
+  #create unknown catagory for NA's
+  mutate(prior_mental_illness= case_when(!is.na(prior_mental_illness) ~ prior_mental_illness, TRUE ~ 'Unknown')) %>% 
+  #group by prior_mental_illness
+  group_by(prior_mental_illness) %>% 
+  ggplot(aes(x=prior_mental_illness,y=total_victims)) +
+  geom_boxplot() +
+  facet_zoom(ylim = c(0, 30)) 
 
+#Explanation from previous
+#From the limited data we have on prior mental ilness, we can clearly see that shootings with a history of mental ilness for the shooter on average have a higher total victim count, and a significantly wider range/IQR in the total number of victimis Vs those without a history of mental illness.
+#Again however,we can see from the plot of the cases with an unknown histroy of mental illness that they exhibit a lower median and intermediate IQR when comapred to Yes/No, which could skew the conclusion depending on how those unknown datapoints are catagorised. 
+
+
+#Mental illness and location type comparison
+mass_shootings %>% 
+  #create unknown catagory for NA's
+  mutate(prior_mental_illness= case_when(!is.na(prior_mental_illness) ~ prior_mental_illness, TRUE ~ 'Unknown')) %>% 
+  #group by prior_mental_illness
+  group_by(location_type, prior_mental_illness) %>% 
+  #Summarise count for each catagory
+  summarise(count=n()) %>% 
+  #multiple bar chart
+  ggplot(aes(location_type, count, fill = prior_mental_illness)) +
+  geom_bar(stat="identity", position = "dodge")
+
+#consistent trend with prior mental illness producing more cases in each location, except in the military where interestingly unknown history of mental illness was the most cases.
+
+#intersection of mental ilness, location, total victims comparison
+mass_shootings %>% 
+  #create unknown catagory for NA's
+  mutate(prior_mental_illness= case_when(!is.na(prior_mental_illness) ~ prior_mental_illness, TRUE ~ 'Unknown')) %>% 
+  #group by prior_mental_illness
+  group_by(location_type, prior_mental_illness) %>% 
+  #multiple bar chart
+  ggplot(aes(location_type, total_victims, fill = prior_mental_illness)) +
+  geom_bar(stat="identity", position = "dodge") +
+  facet_zoom(ylim = c(0, 100)) 
+
+#a consistent trend across all location with a history of mental illness leading to a higher total victim count Vs no history of mental illness.
+#Additonally, cases where prior mental health history is unknown also appear to have a high total victim count which could imply a significant portion of that population may also have a history of mental illness. Although, there is not enough data/information on the data to draw such a conclusion currently.
 ```
 
-Make sure to provide a couple of sentences of written interpretation of your tables/figures. Graphs and tables alone will not be sufficient to answer this question.
 
 # Exploring credit card fraud
 
