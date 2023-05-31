@@ -1,6 +1,6 @@
 ---
 title: "Homework 3: Databases, web scraping, and a basic Shiny app"
-author: "Your name goes here"
+author: "Assad Ahmed"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -60,6 +60,8 @@ sky_westminster <- DBI::dbConnect(
 
 How many tables does the database have?
 
+it has 7 tables.
+
 ```{r}
 DBI::dbListTables(sky_westminster)
 ```
@@ -67,6 +69,21 @@ DBI::dbListTables(sky_westminster)
 ## Which MP has received the most amount of money? 
 
 You need to work with the `payments` and `members` tables and for now we just want the total among all years. To insert a new, blank chunk of code where you can write your beautiful code (and comments!), please use the following shortcut: `Ctrl + Alt + I` (Windows) or `cmd + option + I` (mac)
+
+```{r}
+#Calculating the mp who has received the most amount of money
+#glimpse both tables to understand structures
+#set the tables into data frames with given names for ease
+payments <- dplyr::tbl(sky_westminster, "payments")
+glimpse(payments)
+members <- dplyr::tbl(sky_westminster, "members")
+glimpse(payments)
+
+#join the 2 tables on member ID
+
+member_payments <- left_join(x = members, y = payments, by = "member_id")
+```
+
 
 
 ## Any `entity` that accounts for more than 5% of all donations?
@@ -178,7 +195,9 @@ We will scrape and work with data foreign connected PACs that donate to US polit
 
 All data come from [OpenSecrets.org](https://www.opensecrets.org), a *"website tracking the influence of money on U.S. politics, and how that money affects policy and citizens' lives"*.
 
-```{r, eval=FALSE}
+```{r, }
+#|eval=false doesn't run code in doc
+#|echo=false doesn't show code in the doc
 #| label: allow-scraping-opensecrets
 #| warning: false
 #| message: false
@@ -200,7 +219,7 @@ contributions_tables <- base_url %>%
     -   Write a function that converts contribution amounts in `total`, `dems`, and `repubs` from character strings to numeric values.
     -   Separate the `country_of_origin_parent_company` into two such that country and parent company appear in different columns for country-level analysis.
 
-```{r, eval=FALSE}
+```{r}
 # write a function to parse_currency
 parse_currency <- function(x){
   x %>%
