@@ -34,6 +34,7 @@ library(robotstxt) # check if we're allowed to scrape the data
 library(scales)
 library(sf)
 library(readxl)
+library(lubridate)
 ```
 
 # Money in UK politics
@@ -68,7 +69,7 @@ DBI::dbListTables(sky_westminster)
 
 ## Which MP has received the most amount of money? 
 
-You need to work with the `payments` and `members` tables and for now we just want the total among all years. To insert a new, blank chunk of code where you can write your beautiful code (and comments!), please use the following shortcut: `Ctrl + Alt + I` (Windows) or `cmd + option + I` (mac)
+Theresa May recived the most money
 
 ```{r}
 #Calculating the mp who has received the most amount of money
@@ -77,24 +78,87 @@ You need to work with the `payments` and `members` tables and for now we just wa
 payments <- dplyr::tbl(sky_westminster, "payments")
 glimpse(payments)
 members <- dplyr::tbl(sky_westminster, "members")
-glimpse(payments)
+glimpse(members)
 
-#join the 2 tables on member ID
+#join the 2 tables on ID
 
-member_payments <- left_join(x = members, y = payments, by = "member_id")
+member_payments <- left_join(x = members, y = payments, c("id"="member_id")) %>% 
+  #group by MP Name
+  group_by(name) %>% 
+  #Summarise total value accrued by MP
+  summarise(Total_Value = sum(value)) %>% 
+  #Arrange descending
+  arrange(desc(Total_Value))
+
+#pull top row which is MP with the most amount of money recived
+head(member_payments,7)
 ```
-
 
 
 ## Any `entity` that accounts for more than 5% of all donations?
 
 Is there any `entity` whose donations account for more than 5% of the total payments given to MPs over the 2020-2022 interval? Who are they and who did they give money to?
 
+```{r}
+
+total_money <- payments %>% 
+              #summarise total value
+              summarise(total= sum(value))
+
+Entity_values <- left_join(x = members, y = payments, c("id"="member_id")) %>%
+  #select relevant column
+  select(entity,value) %>% 
+  #mutate for a % of total value column
+  mutate(Percentage=value/sum(value)) %>% 
+  #group by entity
+  group_by(entity) %>% 
+  #Arrange descending
+  arrange(desc(Percentage))
+
+#view top entities
+heqad(Entity_values)
+```
+no entity has more than 5% of total donations
+
 ## Do `entity` donors give to a single party or not?
 
 - How many distinct entities who paid money to MPS are there?
+
+```{r}
+payments %>%
+  #filter for values >0 to avpid entiities with no payments made
+  filter(value>0) %>% 
+  #select relevant column for entities only
+  select(entity) %>% 
+  #count distinct
+  summarise(Count=n_distinct(entity)) 
+
+```
+
+there were 2213 distinct entities that paid money to MP's
+
 - How many (as a number and %) donated to MPs belonging to a single party only?
 
+```{r}
+#implies we want to select MP's who only have 1 party ID
+#create a count by LP for number of parties they are associated with in the data
+
+multiple_parties <- left_join(x = members, y = payments, c("id"="member_id")) %>%
+  #group by MP
+  group_by(entity) %>% 
+  #summarise distinct parties donated to by entity
+  summarise(count_party=n_distinct(party_id)) %>% 
+  #filter out any with count>1
+  filter(count_party<2 & !is.na(count_party))
+
+#1000 entities have donated only to 1 party
+#% donated to 1 party of total
+one_party=1000
+distinct_entities=2213
+percent_1_party = one_party/distinct_entities
+
+#view %
+head(percent_1_party)
 
 ## Which party has raised the greatest amount of money in each of the years 2020-2022? 
 
@@ -103,13 +167,25 @@ I would like you to write code that generates the following table.
 ```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics(here::here("images", "total_donations_table.png"), error = FALSE)
 ```
+1000 entities only donated to 1 part, which equates to ~45% of all entities that donated
 
-
-... and then, based on this data, plot the following graph. 
 
 ```{r echo=FALSE, out.width="80%"}
 knitr::include_graphics(here::here("images", "total_donations_graph.png"), error = FALSE)
 ```
+```{r}
+#plotting the above graph
+#glipmse the parties table for the matching join column
+
+#convert dates to years
+year_add <- left_join(x = members, y = payments, c("id"="member_id")) %>%
+    #mutate the date into a new yearly column
+    mutate(year= str_sub(date,-4,-1))
+    #group by year an dpolitical aprty
+    group_by(year,)
+
+```
+
 
 This uses the default ggplot colour pallete, as I dont want you to worry about using the [official colours for each party](https://en.wikipedia.org/wiki/Wikipedia:Index_of_United_Kingdom_political_parties_meta_attributes). However, I would like you to ensure the parties are sorted according to total donations and not alphabetically. You may even want to remove some of the smaller parties that hardly register on the graph. Would facetting help you?  
 
