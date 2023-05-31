@@ -176,14 +176,24 @@ knitr::include_graphics(here::here("images", "total_donations_graph.png"), error
 ```{r}
 #plotting the above graph
 #glipmse the parties table for the matching join column
+parties <- dplyr::tbl(sky_westminster, "parties")
+glimpse(parties)
 
 #convert dates to years
-year_add <- left_join(x = members, y = payments, c("id"="member_id")) %>%
+left_join(x = members, y = payments, c("id"="member_id")) %>%
+    left_join(parties, c("party_id"="id")) %>% 
     #mutate the date into a new yearly column
-    mutate(year= str_sub(date,-4,-1))
-    #group by year an dpolitical aprty
-    group_by(year,)
+    mutate(year= str_sub(date,-4,-1)) %>% 
+    #filter out for years >=2020
+    filter(year>=2020) %>% 
+    #group by year an political aprty
+    group_by(year,name.y) %>% 
+    #arrange descending year
+    arrange(desc(year)) %>% 
+    ggplot(aes(year,value)) +
+    geom_bar(aes(fill = name.y), stat = "identity", position = "dodge")
 
+#short on time so had to skip. remaning issue is to find out by 2019/NA clumns still show after filter and to reorder the clustered bar charts descending to match and rename the elgends/axes
 ```
 
 
