@@ -222,7 +222,7 @@ toc() # stop timer
 
 nrow(cdc_data)
 class(cdc_data)
-#glimpse(cdc_data) crashed my PC multiple times
+glimpse(cdc_data) #crashed my PC multiple times
 # using a head to see columns instead which also ran slow but loaded without crashing
 #commenting out the below to allow file to knit
 #cdc_data %>%
@@ -232,7 +232,7 @@ class(cdc_data)
 ```
 Can you query the database and replicate the following plot?
 
-```{r echo=FALSE, out.width="100%"}
+```{r , out.width="100%"}
 knitr::include_graphics(here::here("images", "covid-CFR-ICU.png"), error = FALSE)
 
 #plotting chart
@@ -248,7 +248,7 @@ knitr::include_graphics(here::here("images", "covid-CFR-ICU.png"), error = FALSE
 The previous plot is an aggregate plot for all three years of data. What if we wanted to plot Case Fatality Ratio (CFR) over time? Write code that collects the relevant data from the database and plots the following
 
 
-```{r echo=FALSE, out.width="100%"}
+```{r, out.width="100%"}
 knitr::include_graphics(here::here("images", "cfr-icu-overtime.png"), error = FALSE)
 
 #plotting chart
