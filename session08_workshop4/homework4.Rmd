@@ -51,12 +51,29 @@ We have a sample of 1394 movies and we want to fit a model to predict whether a 
 bechdel <- read_csv(here::here("data", "bechdel.csv")) %>% 
   mutate(test = factor(test)) 
 glimpse(bechdel)
-
+head(bechdel)
 ```
 How many films fail/pass the test, both as a number and as a %?
 
 ```{r}
+#Count how many films pass/fail the test
 
+pass_fail <- bechdel %>% 
+  #filter out any NA's in the test column, exclude these films form the stats
+  filter(!is.na(test)) %>% 
+  #select the test,count, percent columns
+  select(test) %>% 
+  #mutate to add a count column
+  mutate(count = n(),
+         percent= count/sum(count)) %>%
+  #group by test & summarise
+  group_by(test) %>% 
+  summarise(count = sum(count),
+            percent=sum(percent))
+
+#view the results
+pass_fail
+  
 ```
 
 
@@ -95,6 +112,23 @@ bechdel_test <- testing(data_split)
 Check the counts and % (proportions) of the `test` variable in each set.
 ```{r}
 
+#calculate stats for training set
+train_stats <- bechdel_train %>% 
+  #filter out any NA's in the test column, exclude these films form the stats
+  filter(!is.na(test)) %>% 
+  #select the test,count, percent columns
+  select(test) %>% 
+  #mutate to add a count column
+  mutate(count = n(),
+         percent= count/sum(count)) %>%
+  #group by test & summarise
+  group_by(test) %>% 
+  summarise(count = sum(count),
+            percent=sum(percent))
+
+#view the results
+pass_fail
+  
 ```
 
 ## Feature exploration
