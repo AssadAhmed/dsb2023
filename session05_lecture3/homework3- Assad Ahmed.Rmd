@@ -403,6 +403,7 @@ head(contributions)
 ```{r}
 #creating a function that parses 1 URL and returns a dataframe
 #scrape date function
+
 scrape_pac <- function(x){
   interim <- x %>%
   read_html() %>%
@@ -411,12 +412,13 @@ scrape_pac <- function(x){
   #load into dataframes
   html_table()
   #split into 1 tibble
-  final=interim[[1]]
   #clean the column names
-  final_2022 <- final %>% 
+  interim[[1]] %>% 
   janitor::clean_names() %>%
   #mutate a new column with year contained
-  mutate(year = str_sub(base_url,-4,-1))
+  mutate(year = str_sub(x,-4,-1))
+  #Clear the interim dataframe
+  #interim <- interim[0]
   
 }
 
@@ -472,7 +474,7 @@ for (x in urls) {
 }
 
 #check the combined dataframe
-head(contributions_all)
+view(contributions_all)
 #still only the year issue which i belive is down to the function not resetting the interim dataframe, but not sure how to correct
 ```
 
@@ -482,7 +484,7 @@ head(contributions_all)
 ```{r}
 #as my scrape_pac function doesn't work i cannot write to a CSV, however have added the code i would use below
 #commenting out for knitted file
-#write.csv(contributions_all,file='.../Desktop/dsb2023-main/data', row.names=FALSE)
+write.csv(contributions_all,file='.../Desktop/dsb2023-main/data', row.names=FALSE)
 #CSV is now visible in my data folder
 ```
 
@@ -514,14 +516,14 @@ Identify the CSS selectors in order to extract the relevant information from thi
 #code block ran fine but didn't work when knitting so have commented out
 
 #CSS Selectors to extract the above fields into a dataframe
-#listings_html <- base_url_Con %>%
-#  read_html() %>%
-#  html_nodes(css="table") %>% 
-#  html_table()
+listings_html <- base_url_Con %>%
+  read_html() %>%
+  html_nodes(css="table") %>% 
+  html_table()
 
 #pulls 1 tibble
-#glimpse(listings_html)
-#head(listings_html[[1]])
+glimpse(listings_html)
+head(listings_html[[1]])
 
 #use the above CSS selector proxy to parse all pages
 ```
@@ -543,12 +545,14 @@ scrape_jobs <- function(y){
   placeholder2=new2[[1]]
   #clean the column names
   placeholder2 <- placeholder2 %>% 
-  janitor::clean_names()
+  janitor::clean_names() %>% 
+  #mutate a new column with page contained on
+  mutate(page = str_sub(y,-1,-1))
   
 }
 #test scrape_jobs
-#test4<- scrape_jobs(base_url2)
-#head(test4)
+test4<- scrape_jobs(base_url2)
+head(test4)
 #function seems to work
 
 #define a vector for the URL's
@@ -570,10 +574,11 @@ for (y in pages) {
   medium <- data.frame(base_df)
   #combine data frames into all consulting jobs data frame sequentially
   all_consulting_jobs <- rbind(all_consulting_jobs,medium)
+  
 }
 
 #not working 
-head(all_consulting_jobs)
+glimpse(all_consulting_jobs)
 #write to CSV
 #write.csv(all_consulting_jobs,file='.../Desktop/dsb2023-main/data', row.names=FALSE)
 #CSV is now visible in my data folder
