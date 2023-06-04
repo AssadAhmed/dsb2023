@@ -126,9 +126,25 @@ train_stats <- bechdel_train %>%
   summarise(count = sum(count),
             percent=sum(percent))
 
+#calculate stats for test set
+test_stats <- bechdel_test %>% 
+  #filter out any NA's in the test column, exclude these films form the stats
+  filter(!is.na(test)) %>% 
+  #select the test,count, percent columns
+  select(test) %>% 
+  #mutate to add a count column
+  mutate(count = n(),
+         percent= count/sum(count)) %>%
+  #group by test & summarise
+  group_by(test) %>% 
+  summarise(count = sum(count),
+            percent=sum(percent))
+
 #view the results
-pass_fail
-  
+test_stats
+train_stats
+
+#the eprcentage pass/fail is ~the same for the train and testing data set.
 ```
 
 ## Feature exploration
@@ -163,7 +179,14 @@ bechdel %>%
   ggpairs(aes(colour=test), alpha=0.2)+
   theme_bw()
 ```
+Explaining the correlation matrix:
+[colour references, fail=red and blue=pass.]
 
+from the output we can see that films that failed the bechdel test has higher mean rating (imdb/meta score) and sloghtly higher domestic/internaitonal boxoffice gross figures. The IMDB ratings for both pass/fail movies are normally distrubuted about the mean, which is similar for the meta score. The scatter plot also shows that IMDB rating and meta score are highly correlated (backed up by the ~o.7 correlation coefficient).
+The strongest positive correlation appears to be between international and domestic boxoffice gross (almost 1!).
+budget, domestic, and international gross all show significant kurtosis, with extreme right handed skewness visible (implying the majority of the films are towards the lower end of those variables).
+1 very significant outliers appear to be visible, one for budget (extremely high value within the fail category).
+Overall the pass/fail bedechel test catagories appear to have very similar characteristics, with minor differences in the fail catagory leading to marginally higher mean box office and budget figures.
 
 ## Categorical variables
 
