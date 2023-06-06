@@ -307,7 +307,7 @@ The number of folds used for the model (i.e- how the model has been segmented, a
 ```{r}
 set.seed(123)
 bechdel_folds <- vfold_cv(data = bechdel_train, 
-                          v = 10, 
+                          v = 2, 
                           strata = test)
 bechdel_folds
 ```
@@ -507,8 +507,6 @@ movie_rec <- recipe(test ~ ., data = bechdel) %>%
   step_normalize(all_numeric()) %>% 
   step_corr(all_predictors(), threshold = 0.75, method = "spearman") 
 
-
-
 movie_rec
 ```
 
@@ -601,8 +599,10 @@ knn_wflow <-
 
 HEADS UP
 
-1. How many models have you specified?
+1. How many models have you specified? 5
 2. What's the difference between a model specification and a workflow?
+  model specification=
+  model workflow=
 3. Do you need to add a formula (e.g., `test ~ .`)  if you have a recipe?
 
 
@@ -654,7 +654,7 @@ log_pred %>%
 
 log_pred %>% 
   group_by(id) %>% # id contains our folds
-  roc_curve(test, .pred_above) %>% 
+  roc_curve(test, .pred_Pass) %>% 
   autoplot()
 
 
@@ -817,10 +817,10 @@ last_fit_xgb %>%
 ## Final ROC curve
 last_fit_xgb %>% 
   collect_predictions() %>% 
-  roc_curve(test, .pred_above) %>% 
+  roc_curve(test, .pred_Pass) %>% 
   autoplot()
 ```
-
+Random Forest appears to be the best model (with 2 Folds)
 
 
 # Deliverables
