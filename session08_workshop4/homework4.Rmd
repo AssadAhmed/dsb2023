@@ -1,6 +1,6 @@
 ---
 title: "Homework 4: Machine Learning"
-author: "Your name goes here"
+author: "Assad Ahmed"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -30,6 +30,8 @@ library(rpart.plot)
 library(here)
 library(scales)
 library(vip)
+library(Cubist)
+library(C50)
 ```
 
 
@@ -182,11 +184,11 @@ bechdel %>%
 Explaining the correlation matrix:
 [colour references, fail=red and blue=pass.]
 
-from the output we can see that films that failed the bechdel test has higher mean rating (imdb/meta score) and sloghtly higher domestic/internaitonal boxoffice gross figures. The IMDB ratings for both pass/fail movies are normally distrubuted about the mean, which is similar for the meta score. The scatter plot also shows that IMDB rating and meta score are highly correlated (backed up by the ~o.7 correlation coefficient).
+from the output we can see that films that failed the bechdel test has higher mean rating (imdb/meta score) and sloghtly higher domestic/international boxoffice gross figures. The IMDB ratings for both pass/fail movies are normally distributed about the mean, which is similar for the meta score. The scatter plot also shows that IMDB rating and meta score are highly correlated (backed up by the ~o.7 correlation coefficient).
 The strongest positive correlation appears to be between international and domestic boxoffice gross (almost 1!).
 budget, domestic, and international gross all show significant kurtosis, with extreme right handed skewness visible (implying the majority of the films are towards the lower end of those variables).
 1 very significant outliers appear to be visible, one for budget (extremely high value within the fail category).
-Overall the pass/fail bedechel test catagories appear to have very similar characteristics, with minor differences in the fail catagory leading to marginally higher mean box office and budget figures.
+Overall the pass/fail bedechel test categories appear to have very similar characteristics, with minor differences in the fail category leading to marginally higher mean box office and budget figures.
 
 ## Categorical variables
 
@@ -203,6 +205,16 @@ bechdel %>%
   summarise(n = n()) %>% 
   mutate(prop = n/sum(n))
 ```
+genre summary:
+
+Action has the highest failure rate c.70% of the genres with >10 movies.For example, Documentary has a 100% failure rate but only a sample size of 3 which is too small to draw conclusions from.
+Horror on the other hand has the highest pass %, with 67% of all Horror films passing the bedechel test.
+The generes with the largest number of films (Action, Comedy, drama, Horror) all show significant differences from the overall pass/fail %'s, highlighting significant differencess in the bedechel test outcomes based on the genre selected.
+
+Ratings summary:
+
+PG,PG-13, and R rated films all showcase similar behaviour to the overall sample in terms of the pass/fail %'s.
+However, G & NC-17 exhibited markedly different results, with much higher % rates of failure than the average. Again this showcases that the pass/failure rate is influenced by the rating for those particular cases.
 
 # Train first models. `test ~ metascore + imdb_rating`
 
@@ -290,6 +302,7 @@ plot(draw_tree)
 # Cross Validation
 
 Run the code below. What does it return?
+The number of folds used for the model (i.e- how the model has been segmented, allows for corss validation with the training data split into equally sized folds)
 
 ```{r}
 set.seed(123)
